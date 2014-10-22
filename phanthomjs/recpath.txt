@@ -1,0 +1,60 @@
+received: {
+    "contentType": "text/css",
+    "headers": [
+        {
+            "name": "Date",
+            "value": "Tue, 30 Sep 2014 06:07:04 GMT"
+        },
+        {
+            "name": "Server",
+            "value": "Apache"
+        },
+        {
+            "name": "Set-Cookie",
+            "value": "CP_GUTC=173.38.57.77.1412057224441815; path=/; expires=Sun, 29-Sep-19 06:07:04 GMT; domain=.cisco.com"
+        },
+        {
+            "name": "ETag",
+            "value": "\"4fcb0cab2c600\""
+        },
+        {
+            "name": "Accept-Ranges",
+            "value": "bytes"
+        },
+        {
+            "name": "Vary",
+            "value": "Accept-Encoding"
+        },
+        {
+            "name": "Content-Encoding",
+            "value": "gzip"
+        },
+        {
+            "name": "CDCHOST",
+            "value": "cdcxweb-nprd4-02"
+        },
+        {
+            "name": "Cache-Control",
+            "value": "max-age=28800, public, must-revalidate"
+        },
+        {
+            "name": "Keep-Alive",
+            "value": "timeout=2, max=1000"
+        },
+        {
+            "name": "Connection",
+            "value": "Keep-Alive"
+        },
+        {
+            "name": "Content-Type",
+            "value": "text/css"
+        }
+    ],
+    "id": 19,
+    "redirectURL": null,
+    "stage": "end",
+    "status": 200,
+    "statusText": "OK",
+    "time": "2014-09-30T06:07:05.342Z",
+    "url": "http://www-stage.cisco.com/web/fw/c/megamenu.min.css"
+}
