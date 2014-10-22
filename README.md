@@ -1,4 +1,4 @@
-my work has basic sample examples of following technologies:
+examples work has basic sample examples of following technologies:
 
  angularjs
 
