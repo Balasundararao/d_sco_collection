@@ -1,0 +1,59 @@
+<html>
+<head>
+<script type="text/javascript">
+/** HTML 
+ * Verifying Whether Browser supports  Html5 storage or not  
+ * 
+ * 
+ */
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+var x = supports_html5_storage();
+if(x){ 
+	alert("You Rocks --- It Supports Html5 Local Storage");
+}else
+{
+	alert("It Dont Supports Html5 Local Storage");
+}
+alert( "Local Storage Length:"  + localStorage.length);
+
+/**
+ * Name: Setting up the Variable  - location  
+ * 
+ */
+try{
+	//  Setting up the location variable if it is empty
+	if(localStorage.getItem("location") == null ) 
+	{
+		localStorage.setItem("location", document.location);
+		alert( "Load Time: =====" + localStorage.getItem("location"));
+	}else
+	{
+		alert( "Loag Time Old Value =====" + localStorage.getItem("location"));
+	}
+}catch(e){
+	alert ( e );
+}
+function showit(){
+alert("Showing the vlaue --" + localStorage.getItem("location"));
+alert("Local Storage Length -- " + localStorage.length);
+if(!localStorage.location)
+	document.getElementById("storedval").innerHTML = localStorage.getItem("location");
+}
+</script>
+</head>
+<body >
+<div>
+	<input type = "button" value ="Show" onclick ="showit()" />
+</div>
+</body>
+</html>
+
+
+
+

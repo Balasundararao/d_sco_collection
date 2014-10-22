@@ -1,0 +1,103 @@
+<html>
+<head>
+<script type="text/javascript">
+
+/** HTML 
+ * Verifying Whether Browser supports  Html5 storage or not  
+ * 
+ * 
+ */
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+var x = supports_html5_storage();
+
+if(x){ 
+	alert("You Rocks --- It Supports Html5 Local Storage");
+}else
+{
+	alert("It Dont Supports Html5 Local Storage");
+}
+alert( localStorage.length);
+
+/**
+ * Name: Setting up the Variable  - location  
+ * 
+ */
+try{
+	//  Setting up the location variable if it is empty
+	if(localStorage.getItem("location") == null ) 
+	{
+		localStorage.setItem("location", document.location);
+		alert( "Page Load time Newly Set Value--" + localStorage.getItem("location") );
+	}else
+	{
+		alert( "Page Load Existing Value--" + localStorage.getItem("location"));
+	}
+}catch(e){
+	alert ( e );
+}
+
+/**
+* name : Setup a varaible on Click  
+* 
+* 
+*/
+function setit(){ 
+try{
+	if (!localStorage.location) {
+		localStorage.setItem("location", "I am New ");
+		alert("Newly Set Value:" + localStorage.getItem("location"));
+	}
+	else {
+		alert("Existing Value--" + localStorage.getItem("location"));
+	}	
+}catch(e)
+{alert( e );}
+} 
+function clearSetIt(){
+    try {
+        localStorage.clear();
+		alert( "After Clear" + localStorage.length);
+    } 
+    catch (e) {
+        alert(e);
+    }
+}
+/**
+* Name Delete a variable on Click
+* 
+*/
+function deleteit(){
+ localStorage.removeItem("location");
+ alert("After Delete--" +localStorage.length);
+ } 
+
+/**
+* Name : Show varaible on click of it 
+* 
+*/
+function showit(){
+alert("Showing the vlaue --" + localStorage.getItem("location"));
+alert("Local Storage Length -- " + localStorage.length);
+if(!localStorage.location)
+	document.getElementById("storedval").innerHTML = localStorage.getItem("location");
+}
+</script>
+</head>
+<body >
+<p><strong>Please Click "set local storage" button to set the value </strong></p>
+<div id="storedval"></div>
+<p>Note: if you want remove local storge value please use delete button</p>
+<div>
+	<input type = "button" value ="Set local storage"  onclick =  "setit()"/>
+	<input type = "button" value ="Show" onclick ="showit()" />
+	<input type = "button" value ="delete" onclick ="deleteit()" />
+	<input type = "button" value ="Clear & set" onclick ="clearSetIt()" />
+	</div>
+</body>
+</html>
