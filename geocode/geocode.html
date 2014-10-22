@@ -1,0 +1,87 @@
+<!-- Emample1 : Fetch the Lat/Lang values based on address/Zip Code. -->
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="http://code.angularjs.org/1.2.0-rc.2/angular.min.js"></script>
+    <script src="http://underscorejs.org/underscore.js"/></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <script type="text/javascript">
+    var gcoder =  angular.module('myApp',[]);
+    var dsrController = function ($scope, Geocoder) {
+    $scope.tabs = [];
+        $scope.zips = ['94531','94532','94533','94534','94535','94536','94537','94538','94539','94540','94541'];
+        $scope.Notes = "NOTE : Find the Lat and Long vlaues of [" + $scope.zips + "]  in Console Window";
+        for(var zip in $scope.zips) {
+            (function(zip){
+                //console.log($scope.zips[zip]); 
+                Geocoder.latLngForAddress($scope.zips[zip]).then(function(latLngVal){ 
+                    console.log(latLngVal);  // Displaying on the console.
+                });
+            })(zip)
+        }//end for loop..  
+        //Geocoder.latLngForAddress("INDIA"); /// for single value..
+    };
+    gcoder.factory('Geocoder', function ($q, $timeout) {
+        var locations={address:'INDIA'};  
+        var queue=[];
+        var queryPause=250;
+        var convertPlaceToPoints = function(){
+            var task = queue[0], 
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({address:task.address},function(result,status){
+                 // if success
+                if(status === google.maps.GeocoderStatus.OK){  
+                    var latLng={
+                        lat:result[0].geometry.location.lat(),
+                        lng:result[0].geometry.location.lng() 
+                    };
+                    queue.shift();
+                    locations[task.address] = latLng;
+                    task.d.resolve(latLng);
+                    if( queue.length){
+                        $timeout(convertPlaceToPoints, queryPause);    
+                    } 
+                }else if(status === google.maps.GeocoderStatus.ZERO_RESULTS){   // if zero results
+                    queue.shift();
+                    task.d.reject({type:0,message:'Zero results for geocoding address'+task.address});   
+                }else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {  // over querylimit
+                    queryPause += 250;
+                    $timeout(convertPlaceToPoints, queryPause);
+                }else if (status === google.maps.GeocoderStatus.REQUEST_DENIED) {
+                    queue.shift();
+                    task.d.reject({type: 'denied',message: 'Request denied for geocoding address ' + task.address});
+                }else if (status === google.maps.GeocoderStatus.INVALID_REQUEST) {
+                    queue.shift();
+                    task.d.reject({type: 'invalid',message: 'Invalid request for geocoding address ' + task.address});
+                } 
+            });
+        }; // end function convertPlaceToPoints..
+        return {
+            latLngForAddress : function (address) {
+                 var d = $q.defer(); 
+                 if (_.has(locations, address)) {
+                      console.log(" Has Address "); 
+                      $timeout(function () {
+                           d.resolve(locations[address]);
+                      });
+                }else{
+                    console.log("Has No Address");
+                    queue.push({
+                      address:address,
+                      d:d
+                    });
+                    if (queue.length === 1) {
+                        convertPlaceToPoints();
+                    }
+                } // end else
+                return d.promise;
+            } // end latLngForAddress.      
+        };  // end return/
+    });
+    </script>
+  </head>
+  <body>
+    <div  ng-controller="dsrController">{{Notes}}</div>
+  </body>
+</html>
