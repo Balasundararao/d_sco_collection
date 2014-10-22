@@ -1,5 +1,8 @@
-my work has  practiced examples of
+my work has basic sample examples of following technologies:
 
+angularjs
+geocode
+grunt
 Nodejs
 Phantomjs
 
