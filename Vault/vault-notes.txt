@@ -1,0 +1,34 @@
+How to User VLT Tool:
+vlt --help
+vlt --help export
+
+Checking Out SubTree: ( initial check out from a JCR repository to the local filesystem starting at <uri> )
+
+vlt co http://localhost:4502/crx/-/jcr:root/apps/appfoldername localfoldername  ( If you only want to check out a subtree of the repository for example for ex :/apps/myapp to localfolder "abc")
+vlt --credentials admin:admin co http://localhost:8080/crx/server/crx.default/jcr_root/
+vlt co --filter filter.xml http://localhost:4502/crx/-jcr:root (Filtered Checkout)
+
+export(from server to local)
+vlt export  http://localhsot:4502/crx(uri) /apps/xxx(jcr-path)  mytest(localpath)
+vlt --credentials admin:admin export http://localhost:4502/crx /apps/cdc/components mytest
+
+Import:
+vlt import  http://localhost:4502/crx(uri) mytest<local-path>  /apps/myapp<jcr-path>
+vlt --credentials admin:admin import  http://localhost:4502/crx(uri) mytest<local-path>  /apps/myapp<jcr-path>
+
+RCP :
+vlt rcp http://localhost:4502/crx/-/jcr:root/content  http://admin:admin@localhost:4503/crx/-/jcr:root/content_copy
+
+http://curl.haxx.se/docs/manpage.html
+curl -u admin:admin -X POST http://localhost:4502/crx/packmgr/service/console.html/etc/packages/setup/homepage_content.zip\?cmd\=preview
+curl -u admin:admin -X POST http://localhost:4502/crx/packmgr/service/.json/etc/packages/tags/technologies_20thMarch2013-1.0.zip\?cmd\=create -d hellotest.zip ( create )
+curl -u admin:admin -X POST http://localhost:4502/crx/packmgr/service/.json/etc/packages/hellotest.zip/bala.zip\?cmd\=delete  ( delete )
+curl -u admin:admin -F package=@<package.zip> http://localhost:7402/crx/packmgr/service/.json/?cmd=upload
+
+curl -u admin:admin -X POST http://localhost:4502/crx/packmgr/service/.json/etc/packages/setup/homepage_content.zip?cmd=build
+curl -u admin:admin -X POST http://localhost:4502/crx/packmgr/service/.json/etc/packages/ID%20Team/cdc-reference-test-code-1.3.10-SNAPSHOT.zip?cmd=build
+
+
+vlt rcp -r  http://admin:admin@localhost:4502/crx/-/jcr:root/content/en/us/test/cl/c22 http://admin:admin@bthunga.cisco.com:4502/crx/-/jcr:root/content/en/us/test/cl/c22
+vlt rcp -r -u  http://admin:admin@localhost:4502/crx/-/jcr:root/content/en/us/test/cl/c22 http://admin:admin@bthunga.cisco.com:4502/crx/-/jcr:root/content/en/us/test/cl/c22
+vlt rcp -r -n  http://admin:admin@localhost:4502/crx/-/jcr:root/content/en/us/test/cl/c22 http://admin:admin@bthunga.cisco.com:4502/crx/-/jcr:root/content/en/us/test/cl/c22

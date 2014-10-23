@@ -1,0 +1,26 @@
+Install SonarQube
+1) Download  latest version of sonarQube from  http://www.sonarqube.org/downloads/  
+2) extract to the folder  
+3) cd to SonarQube_HOME/bin/macosx-universal-64/ 
+4) ./sonar.sh start
+5) acceess the dashboard on http://localhost:9000
+
+Install Javascript Plug-in( http://docs.codehaus.org/display/SONAR/Update+Center)
+Login with admin/admin on sonarQube Dashboard( http://localhost:9000)
+navigate to ->  settings  -->Update Center 
+Verify Updated Plugins / Installed Plugins
+
+
+Jenkins Plugin:
+http://docs.codehaus.org/display/SONAR/Jenkins+Plugin
+http://docs.codehaus.org/pages/viewpage.action?pageId=116359341
+
+Install Eclipse Plugin 
+Install new software on Eclipse  by adding sonar - http://dist.sonar-ide.codehaus.org/eclipse/
+
+
+Install SonarQubeRunner:
+1) Download  latest version of sonarQuber Runner from  http://docs.codehaus.org/display/SONAR/Installing+and+Configuring+SonarQube+Runner
+follow the instructions on the above link
+
+

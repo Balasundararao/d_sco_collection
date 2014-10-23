@@ -1,0 +1,93 @@
+http://acid3.acidtests.org/
+http://html5test.com/
+http://sputnik.googlelabs.com/
+
+http://developer.android.com/sdk/index.html
+http://opendevicelab.com (Responsive inspector)
+
+Yeoman(www.yeoman.io)
+npm install -g yo
+npm install -g grunt-cli bower
+
+npm install -g generator-webapp
+npm install -g generator-angular
+npm install -g generator-express
+npm install -g generator-gruntplugin
+
+mkdir my-yo-project
+cd my-yo-project
+then run
+yo webapp
+yo angular
+yo angular:controller myController
+yo angular:directive myDirective
+yo angular:filter myFilter
+yo angular:service myService
+
+npm install -g bower
+Bower(www.bower.io):
+
+bower help
+bower install
+bower install <package>
+bower install <package>#<version>
+bower install <name>=<package>#<version>
+bower uninstall <package-name>
+bower list
+bower search
+
+Grunt
+npm install -g grunt
+npm install -g grunt-cli
+npm install grunt --save-dev
+npm install
+
+npm install -g grunt-init
+npm install grunt-contrib-jshint --save-dev
+npm install grunt-contrib-qunit  --save-dev
+npm install grunt-contrib-concat --save-dev
+npm install grunt-contrib-uglify --save-dev
+npm install grunt-contrib-watch  --save-dev
+grunt-init-gruntfile
+grunt-init-gruntplugin
+grunt-init[template]
+git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/
+
+grunt jshint
+grunt jasmine:src
+
+grunt install
+grunt serve ( preview and app you have generated)
+grunt test  ( Run the unit tests for an app )
+grunt ( build an optimized, production-ready version of your app )
+
+Karma:
+karma init
+http://www.slideshare.net/larsthorup/continuous-integration-for-frontend-javascript
+http://www.slideshare.net/evgenyg/nodejs-meets-jenkins?v=qf1&b=&from_search=2
+
+udacity-conf.appspot.com/map
+https://github.com/google/ios-webkit-debug-proxy
+
+https://raw.github.com/vojtajina/testacular/master/test/client/config.js
+
+www.livereload.com
+http://johnbintz.github.com/jasmine-headless-webkit
+https://github.com/velesin/jasmine-jquery
+http://tobyho.com/2011/12/15/jasmine-spy-cheatsheet/
+
+http://package.json.nodejitsu.com/.
+
+express:
+sudo npm install express -g
+sudo npm install express@3.0.5 -g
+express -sessions ~/auto-express
+npm install
+npm install iniparser
+
+http://cjohansen.no/en/javascript/javascript_continuous_integration_with_hudson_and_jstestdriver
+
+export PATH=/usr/local/bin:/usr/local/bin/node:/usr/local/bin/phantomjs:$PATH;
+npm install -g grunt-cli
+npm install
+grunt jenkins --no-color

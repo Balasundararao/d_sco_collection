@@ -1,0 +1,93 @@
+staged: Files are ready to be committed.
+unstaged: Files with changes that have not been prepared to be commited.
+untracked: Files aren't tracked by Git yet. This usually indicates a newly created file.
+deleted: File has been deleted and is waiting to be removed from Git.
+
+git reset: You can use git reset <filename> to remove a file or files from the staging area.
+
+Staging Area: A place where we can group files together before we "commit" them to Git.
+
+Commit A "commit" is a snapshot of our repository. This way if we ever need to look back at the changes we've made (or if someone else does), we will see a nice timeline of all changes.
+
+git stash: Sometimes when you go to pull you may have changes you don't want to commit just yet. One option you have, other than commiting, is to stash the changes.
+Use the command 'git stash' to stash your changes, and 'git stash apply' to re-apply your changes after your pull.
+
+
+git init 
+git add -i
+git add index.html
+git commit -m "Added to the CVS"
+git add index.html( Even to add modifcations to file)
+
+BRANCHES:
+git branch RB_1.0
+git branch -r( Show Remote Branches )
+git branch -a( Show All  Locale and Remote Branches )
+git branch -d RB_1.0 ( to delete the branch)
+git branch -m master mymaster ( renamed the master branch to mymaster)
+git checkout -b alternate master( Git to create the branch from the master branch instead of the current branch )
+git remote add remoterepo repourl ( Add a New Remote Repository )
+
+CHECKOUT:
+git checkout branchname
+git reset HEAD <some file> [<some file>]( Revert changes in a working tree )
+
+
+CLONE:
+git clone git://github.com/tswicegood/mysite.git mysite-remote
+git fetch ( Running git fetch updates your remote branches; it doesn’t merge the changes into your local branch)
+
+COMMIT:
+git commit -a ( open a popup to add comment and save and exit)
+git commit -m "changes to some-file"
+git commit -m "changes to some-file" -a
+git commit -m "changes to some-file" some-files
+
+CONFIG:
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global color.ui "auto"
+
+DIFF:
+git diff ( git diff without any parameters compares the changes in your working tree against the staging area)
+git diff --cache
+git diff HEAD( HEAD is a keyword that refers to the most recent commit to the branch you’re in)
+
+LOGS:
+git log
+git log --pretty=oneline
+
+MERGING:( straight, squashed, cherry-picking)
+git merge RB_1.0 ( name of the branch you want to merge into your current branch )
+git merge --squash contact
+
+PULL:
+git pull ( if you want to fetch the changes from a remote repository and merge them into your local branch at the same time
+
+PUSH:
+git push
+
+REMOTE REPOSITORIES:
+git provides three protocols for communicating with remote repositories(SSH,git,HTTP/HTTPS)
+(username)git@github.com(server)/tswicegood/mysite-chp6.git  -- SSH
+git://@github.com/tswicegood/mysite-chp6.git  -- GIT
+http://github.com/tswicegood/mysite-chp6.git  
+
+TAGS:
+git tag 1.0 RB_1.0
+
+STATUS:
+git status
+git checkout master
+
+git rebase RB_1.0
+
+git archive --format=tar \
+--prefix=mysite-1.0/ 1.0 \
+| gzip > mysite-1.0.tar.gz
+
+git mv test.html hello.html (You have to move the file and then call git add on the new file and git rm—the command to remove a file from
+the repository— on the old file.Go ahead and commit the new hello.html move:
+
+
+git log --pretty="%H" --author="bthunga@cisco.com" | while read commit_hash; do git show --oneline --name-only $commit_hash | tail -n+2; done | sort | uniq

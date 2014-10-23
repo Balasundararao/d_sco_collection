@@ -1,0 +1,28 @@
+mvn archetype:generate -DarchetypeGroupId=com.day.jcr.vault \
+-DarchetypeArtifactId=simple-content-package-archetype \
+-DarchetypeVersion=1.0.2 \
+-DarchetypeRepository=adobe-public-releases
+
+mvn content-package:ls
+mvn content-package:build
+mvn content-package:rm
+mvn content-package:uninstall
+mvn install
+
+Maven Tutorial 01 Part 1- Introduction and Setting up( Java Brains)
+mvn archetype:generate
+
+validate, compile, test, package, install
+
+java -cp trget/MavenTestApp-1.0-SNAPSHOT.jar org.koushik.javabrains.App
+
+mvn content-package:help -Ddetail=true -Dgoal=install
+
+
+http://cardbot.cisco.com:8080/projects/leopard_spots/cards/8180
+
+http://cardbot.cisco.com:8080/projects/leopard_spots/cards/grid?aggregate_property%5Bcolumn%5D=hours+remaining&aggregate_type%5Bcolumn%5D=sum&color_by=developer+-+id&favorite_id=1649&filters%5B%5D=%5BType%5D%5Bis%5D%5BStory%5D&filters%5B%5D=%5BSprint+Planning+-+Sprint%5D%5Bis%5D%5B8245%5D&filters%5B%5D=%5BSimple+Status%5D%5Bis+not%5D%5BTrash%5D&group_by%5Blane%5D=simple+status&lanes=Backlog%2CReady+To+Start%2CIn+Progress%2CBlocked%2CDev+Done%2CAccepted&tab=All
+
+http://cardbot.cisco.com:8080/projects/leopard_spots/cards/8036
+http://cardbot.cisco.com:8080/projects/leopard_spots/cards/8028
+http://cardbot.cisco.com:8080/projects/leopard_spots/cards/7994
