@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<maven2-moduleset plugin="maven-plugin@2.5">
+  <actions/>
+  <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>1</daysToKeep>
+    <numToKeep>3</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <jp.ikedam.jenkins.plugins.extensible__choice__parameter.ExtensibleChoiceParameterDefinition plugin="extensible-choice-parameter@1.2.2">
+          <name>branch</name>
+          <description>Select a branch from the above list.</description>
+          <editable>true</editable>
+          <choiceListProvider class="jp.ikedam.jenkins.plugins.extensible_choice_parameter.TextareaChoiceListProvider">
+            <whenToAdd>CompletedStable</whenToAdd>
+            <choiceList class="java.util.RandomAccessSubList">
+              <l class="java.util.Arrays$ArrayList">
+                <a class="string-array">
+                  <string>develop</string>
+                  <string>master</string>
+                  <string>BR_JQUERY1.10.2_UPGRADE_CODEFIXES</string>
+                  <string>BR_ID_WEB_FW_FACTOR</string>
+                  <string>BR_DM_TABS</string>
+                  <string>BR_DM_AQUAMARINE_BUGFIXES</string>
+                  <string>BR_DM_RESPONSIVE_LANDING</string>
+                  <string>BR_CECTOWEM</string>
+                  <string>BR_WEMQA_BRANCH</string>
+                  <string>BR_REQUIRE_INCLUDER</string>
+                  <string>BR_SUPPORT_EOT_1.0</string>
+                  <string>BR_RESPONSIVE_W8.0</string>
+                  <string>BR_WEM_BUGFIXES_SEPT</string>
+                  <string>BR_EOU_SEP</string>
+                  <string>BR_DM_BEIGE_BUGFIXES</string>
+                  <string>BR_POLYDOR_1.2.2</string>
+                  <string>BR_WEM_BUGFIXES_SEP</string>
+                  <string>BR_DEVOPS_TGIF</string>
+                  <string>BR_UT_POSTAZURE_DEV</string>
+                  <string>BR_SE_BEIGE_RELEASE</string>
+                  <string>BR_AZURE_HOTFIX_2</string>
+                  <string>BR_FEATURE_EXAMPLE</string>
+                  <string>BR_BISQUE_RELEASE</string>
+                  <string></string>
+                </a>
+              </l>
+              <offset>0</offset>
+              <size>23</size>
+            </choiceList>
+            <defaultChoice>develop</defaultChoice>
+          </choiceListProvider>
+        </jp.ikedam.jenkins.plugins.extensible__choice__parameter.ExtensibleChoiceParameterDefinition>
+        <com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition plugin="extended-choice-parameter@0.34">
+          <name>buildArtifact</name>
+          <description>Select a list of artifacts from the above list.</description>
+          <quoteValue>false</quoteValue>
+          <visibleItemCount>10</visibleItemCount>
+          <type>PT_CHECKBOX</type>
+          <value>buildSetup,buildSecurity,buildCore,buildDm,buildTests,buildMinimalContent,buildHomepage,buildReuseContent,build3lmContent</value>
+          <multiSelectDelimiter>,</multiSelectDelimiter>
+        </com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition>
+        <com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition plugin="extended-choice-parameter@0.34">
+          <name>deployArtifact</name>
+          <description>Select a list of artifacts from the above list.</description>
+          <quoteValue>false</quoteValue>
+          <visibleItemCount>10</visibleItemCount>
+          <type>PT_CHECKBOX</type>
+          <value>deploySetup,deploySecurity,deployCore,deployDm,deployTests,deployMinimalContent,deployHomepage,deployReuseContent,deploy3lmContent</value>
+          <multiSelectDelimiter>,</multiSelectDelimiter>
+        </com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition>
+        <com.moded.extendedchoiceparameter.ExtendedChoiceParameterDefinition plugin="dynamic_extended_choice_parameter@1.0.1">
+          <name>Environment</name>
+          <description>Select Environment Type</description>
+          <quoteValue>false</quoteValue>
+          <svnPath>false</svnPath>
+          <roleBasedFilter>false</roleBasedFilter>
+          <visibleItemCount>5</visibleItemCount>
+          <type>PT_SINGLE_SELECT</type>
+          <value></value>
+          <propertyFile>/data/var/lib/jenkins/workspace/job_properties/env_type.txt</propertyFile>
+          <propertyKey>Host_Name</propertyKey>
+          <defaultValue></defaultValue>
+          <defaultPropertyFile></defaultPropertyFile>
+          <defaultPropertyKey></defaultPropertyKey>
+          <multiSelectDelimiter>,</multiSelectDelimiter>
+          <bindFieldName>host_name</bindFieldName>
+          <projectName></projectName>
+          <svnUrl></svnUrl>
+          <svnUserName></svnUserName>
+          <svnPassword></svnPassword>
+        </com.moded.extendedchoiceparameter.ExtendedChoiceParameterDefinition>
+        <com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition plugin="extended-choice-parameter@0.34">
+          <name>host_name</name>
+          <description>Select the environment to update the hosts list.</description>
+          <quoteValue>false</quoteValue>
+          <visibleItemCount>5</visibleItemCount>
+          <type>PT_SINGLE_SELECT</type>
+          <propertyFile>/data/var/lib/jenkins/workspace/job_properties/env_type.txt</propertyFile>
+          <propertyKey>Host_Name</propertyKey>
+          <multiSelectDelimiter>,</multiSelectDelimiter>
+        </com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.23"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.2.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <refspec>+refs/heads/$branch:refs/remotes/origin/$branch</refspec>
+        <url>ssh://wiheller@wwwin-git-sjc/git/ecm/wem.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>$branch</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.CloneOption>
+        <shallow>true</shallow>
+        <reference>/data/var/lib/jenkins/workspace/$JOB_NAME</reference>
+      </hudson.plugins.git.extensions.impl.CloneOption>
+    </extensions>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <rootModule>
+    <groupId>com.cisco.wem</groupId>
+    <artifactId>cdc-master-pom</artifactId>
+  </rootModule>
+  <goals>clean install -P $buildArtifact</goals>
+  <aggregatorStyleBuild>true</aggregatorStyleBuild>
+  <incrementalBuild>false</incrementalBuild>
+  <ignoreUpstremChanges>true</ignoreUpstremChanges>
+  <archivingDisabled>true</archivingDisabled>
+  <siteArchivingDisabled>true</siteArchivingDisabled>
+  <fingerprintingDisabled>true</fingerprintingDisabled>
+  <resolveDependencies>false</resolveDependencies>
+  <processPlugins>false</processPlugins>
+  <mavenValidationLevel>-1</mavenValidationLevel>
+  <runHeadless>false</runHeadless>
+  <disableTriggerDownstreamProjects>false</disableTriggerDownstreamProjects>
+  <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+  <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+  <reporters/>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.0">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+  </buildWrappers>
+  <prebuilders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;last 10 commits on this branch&quot;
+git log --name-status HEAD --pretty=format:&apos;%C(yellow)%h%Creset %C(green)%an%Creset, %C(red)%cr%Creset: %C(cyan)%s&apos; -10
+pwd</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Maven>
+      <targets>clean install</targets>
+      <mavenName>(Default)</mavenName>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+    </hudson.tasks.Maven>
+  </prebuilders>
+  <postbuilders>
+    <hudson.tasks.Shell>
+      <command>read -a hostnames &lt;&lt;&lt;$host_name
+for i in ${hostnames[@]}; 
+do 
+  arr=(`echo $i | tr &apos;:&apos; &apos; &apos;`)
+  mvn install -P $deployArtifact -Dcrx.host=${arr[0]} -Dcrx.port=${arr[1]}
+done
+
+</command>
+    </hudson.tasks.Shell>
+  </postbuilders>
+  <runPostStepsIfResult>
+    <name>SUCCESS</name>
+    <ordinal>0</ordinal>
+    <color>BLUE</color>
+    <completeBuild>true</completeBuild>
+  </runPostStepsIfResult>
+</maven2-moduleset>
+    

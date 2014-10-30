@@ -1,0 +1,907 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CURL it out &#8211; Adobe CQ5 Curl Commands and Usage | /home/bkondepudi</title>
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" media="screen" href="http://s0.wp.com/wp-content/themes/pub/titan/stylesheets/ie.css?m=1276192024g" />
+<![endif]-->
+<!--[if lte IE 7]>
+<script type="text/javascript" src="http://s0.wp.com/wp-content/themes/pub/titan/javascripts/nav.js?m=1315596887g"></script>
+<![endif]-->
+<link rel="pingback" href="http://balawcm.wordpress.com/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="/home/bkondepudi &raquo; Feed" href="http://balawcm.wordpress.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="/home/bkondepudi &raquo; Comments Feed" href="http://balawcm.wordpress.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="/home/bkondepudi &raquo; CURL it out &#8211; Adobe CQ5 Curl Commands and&nbsp;Usage Comments Feed" href="http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel='stylesheet' id='all-css-0' href='http://s2.wp.com/_static/??-eJx9jd0OgjAMRl/IWX/A6IXxWQaMUSjtwroQ3l40MRIJXjVNzjkfjMGUwupYoU8mUPLIEQg7F6F1GmzZmfe3L2PcwQIvSPxXEO9dJUlNLUQywoiVd7qSFhvINTLqBNq4fl4LqQBFtfxPChLnCbI4QNSJ3Ir9jW1gG8nGDsj+c7fiTQaepLD0Ah79/Xi+XPPscLrl7RMCR31o' type='text/css' media='all' />
+<link rel='stylesheet' id='print-css-0' href='http://s0.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1335386953g' type='text/css' media='print' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://s2.wp.com/_static/??-eJyFkNEKwjAMRX/IrsjG1AfxW7YuK6ltU5vWMr/eDhQUhT0l5B5ySGQJQpFP4JM0LB2NaEFkhjjoOhPoZ2oM72Tl0CubJ+AVNLcMcXmVTUA41HFI8AY/jIE4OWCuuj/ptwb9HaFsYgZSGNRVRGB8/GwdLWkRbNboWdZew0Q5iZmspSILThrSv4MUObd+JEKwS+PQV+jizvu2Px3b7tD15gm9NXwY'></script>
+<link rel='stylesheet' id='all-css-0' href='http://s0.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1369818522g' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://balawcm.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://balawcm.wordpress.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='How to set a unique and strong password for a&nbsp;site' href='http://balawcm.wordpress.com/2012/11/20/how-to-set-a-unique-and-strong-password-for-a-site/' />
+<meta name="generator" content="WordPress.com" />
+<link rel='canonical' href='http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/' />
+<link rel='shortlink' href='http://wp.me/p1XobM-22' />
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=http%3A%2F%2Fbalawcm.wordpress.com%2F2013%2F02%2F13%2Fcurl-it-out-adobe-cq5-curl-commands-and-usage%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=http%3A%2F%2Fbalawcm.wordpress.com%2F2013%2F02%2F13%2Fcurl-it-out-adobe-cq5-curl-commands-and-usage%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CURL it out - Adobe CQ5 Curl Commands and Usage" />
+<meta property="og:url" content="http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/" />
+<meta property="og:description" content="Run JCR query builder API:Find &quot;all&quot; page references for a given image/asset in a jcr path. The below command will return in JSON format:curl -s -u ${username}:${password} -X GET http://localhost:4..." />
+<meta property="og:site_name" content="/home/bkondepudi" />
+<meta name="twitter:site" content="@wordpressdotcom" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="@wordpressdotcom" />
+<meta property="fb:app_id" content="249643311490" />
+<link rel="shortcut icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311976025g" sizes="16x16 24x24 32x32 48x48" />
+<link rel="icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311976025g" sizes="16x16 24x24 32x32 48x48" />
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1355642671g" />
+<link rel='openid.server' href='http://balawcm.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='http://balawcm.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="http://balawcm.wordpress.com/osd.xml" title="/home/bkondepudi" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com" />
+		<style>
+		/* <![CDATA[ */
+		/* Block: reblog */
+		
+		.reblog-from img                   { margin: 0 10px 0 0; vertical-align: middle; padding: 0; border: 0; }
+		.reblogger-note img.avatar         { float: left; padding: 0; border: 0; }
+		.reblogger-note-content            { margin: 0 0 20px; }
+		.reblog-post .wpcom-enhanced-excerpt-content { border-left: 3px solid #eee; padding-left: 15px; }
+		.reblog-post ul.thumb-list         { display: block; list-style: none; margin: 2px 0; padding: 0; clear: both; }
+		.reblog-post ul.thumb-list li      { display: inline; margin: 0; padding: 0 1px; border: 0; }
+		.reblog-post ul.thumb-list li a    { margin: 0; padding: 0; border: 0; }
+		.reblog-post ul.thumb-list li img  { margin: 0; padding: 0; border: 0; }
+		
+		.reblog-post .wpcom-enhanced-excerpt { clear: both; }
+		
+		.reblog-post .wpcom-enhanced-excerpt address,
+		.reblog-post .wpcom-enhanced-excerpt li,
+		.reblog-post .wpcom-enhanced-excerpt h1,
+		.reblog-post .wpcom-enhanced-excerpt h2,
+		.reblog-post .wpcom-enhanced-excerpt h3,
+		.reblog-post .wpcom-enhanced-excerpt h4,
+		.reblog-post .wpcom-enhanced-excerpt h5,
+		.reblog-post .wpcom-enhanced-excerpt h6,
+		.reblog-post .wpcom-enhanced-excerpt p { font-size: 100% !important; }
+		
+		.reblog-post .wpcom-enhanced-excerpt blockquote,
+		.reblog-post .wpcom-enhanced-excerpt pre,
+		.reblog-post .wpcom-enhanced-excerpt code,
+		.reblog-post .wpcom-enhanced-excerpt q { font-size: 98% !important; }
+		
+
+		/* ]]> */
+		</style>
+			<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none !important;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="/home/bkondepudi" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="A WCM journey with Day/Adobe CQ" /><meta name="msapplication-task" content="name=Subscribe;action-uri=http://balawcm.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="title" content="CURL it out &#8211; Adobe CQ5 Curl Commands and&nbsp;Usage | /home/bkondepudi on WordPress.com" />
+<meta name="description" content="A WCM journey with Day/Adobe CQ" />
+
+<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
+</script>
+<script type='text/javascript'>
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script>
+<script type='text/javascript'>
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post"); }
+</script>
+<script type='text/javascript'>
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 28930674, pt: 'permalink', wa: 0, as: 0, domain: 'balawcm.wordpress.com', url: 'http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/', gid: '', };
+</script>
+<style id="syntaxhighlighteranchor"></style>
+<script type="text/javascript"> 
+	window.google_analytics_uacct = "UA-52447-2"; 
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script>
+</head>
+<body class="single single-post postid-126 single-format-standard highlander-enabled highlander-light">
+	<div class="skip-content"><a href="#content">Skip to content</a></div>
+
+	<div id="header" class="clear">
+			<div id="follow">
+			<div class="wrapper clear">
+				<dl>
+					<dt>Follow:</dt>
+					<dd><a class="rss" href="http://balawcm.wordpress.com/feed/">RSS</a></dd>
+										<dd><a class="twitter" href="http://twitter.com/">Twitter</a></dd>
+									</dl>
+			</div><!--end wrapper-->
+		</div><!--end follow-->
+
+		<div class="wrapper">
+			<div id="title"><a href="http://balawcm.wordpress.com">/home/bkondepudi</a></div>
+			<div id="description">
+				A WCM journey with Day/Adobe CQ			</div><!--end description-->
+
+				 	</div><!--end wrapper-->
+
+		<div id="navigation">
+			<ul id="nav" class="wrapper">
+		<li class="page_item "><a href="http://balawcm.wordpress.com">Home</a></li>
+	        	<li class="page_item page-item-2"><a href="http://balawcm.wordpress.com/about/">About</a></li>
+            		<li class="cat-item cat-item-76986740"><a href="http://balawcm.wordpress.com/category/dayadobe-cq/" title="View all posts filed under Day/Adobe CQ">Day/Adobe CQ</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="http://balawcm.wordpress.com/category/general/" title="View all posts filed under general">general</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://balawcm.wordpress.com/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+    </ul>
+		</div><!--end navigation-->
+	</div><!--end header-->
+	<div class="content-background">
+	<div class="wrapper">
+		<div class="notice">
+				</div><!--end notice-->
+		<div id="content">				<div id="post-126" class="post-126 post type-post status-publish format-standard hentry category-uncategorized tag-adobe-cq5 tag-cq-curl">
+			<div class="post-header">
+				<div class="tags"><span>Tags</span> <p><a href="http://balawcm.wordpress.com/tag/adobe-cq5/" rel="tag">Adobe CQ5</a>, <a href="http://balawcm.wordpress.com/tag/cq-curl/" rel="tag">CQ-CURL</a></p></div>
+				<h1>CURL it out &#8211; Adobe CQ5 Curl Commands and&nbsp;Usage</h1>
+				<div class="author">
+										February 13, 2013				</div>
+			</div><!--end post header-->
+			<div class="entry clear">
+								<p><span style="text-decoration:underline;">Run JCR query builder API:</span></p>
+<p>Find &#8220;all&#8221; page references for a given image/asset in a jcr path. The below command will return in JSON format:<br />curl -s -u ${username}:${password} -X GET <a href="http://localhost:4502/bin/querybuilder.json?path=/content/my-site&#038;1_property=fileReference&#038;1_property.value=/content/dam/my-site/image.jpg&#038;p.limit=-1" rel="nofollow">http://localhost:4502/bin/querybuilder.json?path=/content/my-site&#038;1_property=fileReference&#038;1_property.value=/content/dam/my-site/image.jpg&#038;p.limit=-1</a><br />*Note: -1 in the p.limit will return all page references else prints only 10.</p>
+<p>You can also specify the required number of page references; something like below which will return only 20 page references:<br />curl -s -u ${username}:${password} -X GET <a href="http://localhost:4502/bin/querybuilder.json?path=/content/my-site&#038;1_property=fileReference&#038;1_property.value=/content/dam/my-site/image.jpg&#038;p.limit=20" rel="nofollow">http://localhost:4502/bin/querybuilder.json?path=/content/my-site&#038;1_property=fileReference&#038;1_property.value=/content/dam/my-site/image.jpg&#038;p.limit=20</a></p>
+<p>To find all pending Jobs<br />curl -s -u admin:admin &#8220;<a href="http://localhost:4502/bin/querybuilder.json?&#038;path=/var/eventing/jobs&#038;type=slingevent:Job&#038;p.limit=-1&#038;fulltext=/com/day/cq/replication/job&#038;fulltext.relPath=@slingevent:topic&#038;property.and=true&#038;property=slingevent:finished&#038;property.operation=not&#038;orderby=slingevent:created&#038;orderby.sort=asc&#038;#8221" rel="nofollow">http://localhost:4502/bin/querybuilder.json?&#038;path=/var/eventing/jobs&#038;type=slingevent:Job&#038;p.limit=-1&#038;fulltext=/com/day/cq/replication/job&#038;fulltext.relPath=@slingevent:topic&#038;property.and=true&#038;property=slingevent:finished&#038;property.operation=not&#038;orderby=slingevent:created&#038;orderby.sort=asc&#038;#8221</a>;</p>
+<p>To find all Blocking Jobs<br />curl -s -u admin:admin &#8220;<a href="http://localhost:4502/bin/querybuilder.json?path=/var/eventing/jobs/anon&#038;type=slingevent:Job&#038;rangeproperty.property=event.job.retrycount&#038;rangeproperty.lowerBound=1&#038;#8243" rel="nofollow">http://localhost:4502/bin/querybuilder.json?path=/var/eventing/jobs/anon&#038;type=slingevent:Job&#038;rangeproperty.property=event.job.retrycount&#038;rangeproperty.lowerBound=1&#038;#8243</a>;</p>
+<p><span style="text-decoration:underline;">CQ Package Manager Commands:</span><br />Uninstall a bundle (use <a href="http://localhost:4502/system/console/bundles" rel="nofollow">http://localhost:4502/system/console/bundles</a> to access the Apache Felix web console)<br /> curl -u admin:admin -daction=uninstall <a href="http://localhost:4505/system/console/bundles/&#8221;name-of-bundle&#038;#8221" rel="nofollow">http://localhost:4505/system/console/bundles/&#8221;name-of-bundle&#038;#8221</a>;<br />Upload a package AND install<br /> curl -u admin:admin -F file=@&#8221;name of zip file&#8221; -F name=&#8221;name of package&#8221; -F force=true -F install=true <a href="http://localhost:4502/crx/packmgr/service.jsp" rel="nofollow">http://localhost:4502/crx/packmgr/service.jsp</a><br />Upload a package DO NOT install<br /> curl -u admin:admin -F file=@&#8221;name of zip file&#8221; -F name=&#8221;name of package&#8221; -F force=true -F install=false <a href="http://localhost:4502/crx/packmgr/service.jsp" rel="nofollow">http://localhost:4502/crx/packmgr/service.jsp</a><br />Rebuild an existing package in CQ<br /> curl -u admin:admin -X POST <a href="http://localhost:4502:/crx/packmgr/service/.json/etc/packages/name_of_package.zip?cmd=build" rel="nofollow">http://localhost:4502:/crx/packmgr/service/.json/etc/packages/name_of_package.zip?cmd=build</a></p>
+<p><span style="text-decoration:underline;">Download a package:</span><br /> curl -u admin:admin <a href="http://localhost:4502/etc/packages/export/name_of_package.zip" rel="nofollow">http://localhost:4502/etc/packages/export/name_of_package.zip</a> &gt; name of local package file<br />Upload a package<br /> curl -u admin:admin -F package=@&#8221;name_of_package.zip&#8221; <a href="http://localhost:4502/crx/packmgr/service/.json/?cmd=upload" rel="nofollow">http://localhost:4502/crx/packmgr/service/.json/?cmd=upload</a><br />Install a package<br /> curl -u admin:admin -X POST <a href="http://localhost:4502/crx/packmgr/service/.json/etc/packages/export/name" rel="nofollow">http://localhost:4502/crx/packmgr/service/.json/etc/packages/export/name</a> of package?cmd=install<br /><span style="text-decoration:underline;">CQ Bundle Manager Commands:</span><br />Install a bundle<br /> curl -u admin:admin -F action=install -F bundlestartlevel=20 -F bundlefile=@&#8221;name of jar.jar&#8221; <a href="http://localhost:4502/system/console/bundles" rel="nofollow">http://localhost:4502/system/console/bundles</a><br />Build a bundle<br /> curl -u admin:admin -F bundleHome=/apps/ projects-A/bundles/name of bundle -F descriptor=/apps/projects-A/bundles/com.centrica.cq.wcm.core-bundle/name_of_bundle.bnd <a href="http://localhost:4502/libs/crxde/build" rel="nofollow">http://localhost:4502/libs/crxde/build</a><br />Stop a bundle<br /> curl -u admin:admin <a href="http://localhost:4502/system/console/bundles/org.apache.sling.scripting.jsp" rel="nofollow">http://localhost:4502/system/console/bundles/org.apache.sling.scripting.jsp</a> -Faction=stop<br />Start a bundle<br /> curl -u admin:admin <a href="http://localhost:4502/system/console/bundles/org.apache.sling.scripting.jsp" rel="nofollow">http://localhost:4502/system/console/bundles/org.apache.sling.scripting.jsp</a> -Faction=start<br /><span style="text-decoration:underline;">JCR Node Management:</span><br />Delete a node (hierarchy) &#8211; (this will delete any directory / node / site)<br /> curl -X DELETE <a href="http://localhost:4502/path/to/node/jcr:content/nodeName" rel="nofollow">http://localhost:4502/path/to/node/jcr:content/nodeName</a> -u admin:admin</p>
+<p>Create or add a JCR node:<br />curl -u admin:admin -F&#8221;_charset_=utf-8&#8243; -F&#8221;:nameHint=node&#8221; -F&#8221;jcr:primaryType=nt:unstructured&#8221; -F&#8221;sling:resourceType=project-A/components/abc-definition&#8221; -F&#8221;nodeReferenceName=ref-name1&#8243; -F&#8221;jcr:createdBy=bala&#8221; -F&#8221;jcr:lastModifiedBy=bala&#8221; <a href="http://localhost:4502/content/geometrixx/en_GB/products/jcr:content/abc/" rel="nofollow">http://localhost:4502/content/geometrixx/en_GB/products/jcr:content/abc/</a></p>
+<p>Create or add a JCR node along with some properties:<br />curl -u admin:admin -F&#8221;_charset_=utf-8&#8243; -F&#8221;:nameHint=var&#8221; -F&#8221;jcr:primaryType=nt:unstructured&#8221; -F&#8221;key=key1&#8243; -F&#8221;value=key1-value&#8221; <a href="http://localhost:4502/content/geometrixx/en_GB/products/jcr:content/abc/variables/" rel="nofollow">http://localhost:4502/content/geometrixx/en_GB/products/jcr:content/abc/variables/</a></p>
+<p><span style="text-decoration:underline;">CQ Replication Commands:</span><br />Tree Activation<br /> curl -u admin:admin -F cmd=activate -F ignoredeactivated=true -F onlymodified=true -F path=/content/geometrixx <a href="http://localhost:4502/etc/replication/treeactivation.html" rel="nofollow">http://localhost:4502/etc/replication/treeactivation.html</a></p>
+<p><span style="text-decoration:underline;">User &amp; Group Administration</span><br />Get User Info:<br />curl -u admin:admin <a href="http://localhost:4502/libs/granite/security/balakondepudi.json" rel="nofollow">http://localhost:4502/libs/granite/security/balakondepudi.json</a></p>
+<p>Create User:<br />curl -u admin:admin -FcreateUser= -FauthorizableId=testuser -Frep:password=abc123 <a href="http://localhost:4502/libs/granite/security/post/authorizables" rel="nofollow">http://localhost:4502/libs/granite/security/post/authorizables</a></p>
+<p>Create Group:<br />curl -u admin:admin -FcreateGroup=group1 -FauthorizableId=testGroup1 <a href="http://localhost:4502/libs/granite/security/post/authorizables" rel="nofollow">http://localhost:4502/libs/granite/security/post/authorizables</a></p>
+<p>Create user with Profile:<br />curl -u admin:admin -FcreateUser=testuser -FauthorizableId=testuser -Frep:password=abc123 -Fprofile/gender=male <a href="http://localhost:4502/libs/granite/security/post/authorizables" rel="nofollow">http://localhost:4502/libs/granite/security/post/authorizables</a></p>
+<p>Set a Profile Property on an Existing User:<br />curl -u admin:admin -Fprofile/age=29 <a href="http://localhost:4502/home/users/t/testuser1.rw.html" rel="nofollow">http://localhost:4502/home/users/t/testuser1.rw.html</a></p>
+<p>Create a User as a Member of a Group:<br />curl -u admin:admin -FcreateUser=testuser -FauthorizableId=testuser -Frep:password=abc123 -Fmembership=contributor <a href="http://localhost:4502/libs/granite/security/post/authorizables" rel="nofollow">http://localhost:4502/libs/granite/security/post/authorizables</a></p>
+<p>Add a User to a Group:<br />curl -u admin:admin -FaddMembers=testuser1 <a href="http://localhost:4502/home/groups/t/testGroup.rw.html" rel="nofollow">http://localhost:4502/home/groups/t/testGroup.rw.html</a></p>
+<p>Remove a User from a Group:<br />curl -u admin:admin -FremoveMembers=testuser1 <a href="http://localhost:4502/home/groups/t/testGroup.rw.html" rel="nofollow">http://localhost:4502/home/groups/t/testGroup.rw.html</a></p>
+<p>Set a User’s Group Memberships:<br />curl -u admin:admin -Fmembership=contributor -Fmembership=testgroup <a href="http://localhost:4502/home/users/t/testuser.rw.html" rel="nofollow">http://localhost:4502/home/users/t/testuser.rw.html</a></p>
+<p>Delete user and Group:<br />curl -u admin:admin -FdeleteAuthorizable= <a href="http://localhost:4502/home/users/t/testuser" rel="nofollow">http://localhost:4502/home/users/t/testuser</a><br />curl -u admin:admin -FdeleteAuthorizable= <a href="http://localhost:4502/home/groups/t/testGroup" rel="nofollow">http://localhost:4502/home/groups/t/testGroup</a></p>
+<p>Change an user password:<br />curl -u testuser:OLD_PWD -F rep:password=&#8221;NEW_PWD&#8221; <a href="http://localhost:4502/home/users/t/testuser.rw.html" rel="nofollow">http://localhost:4502/home/users/t/testuser.rw.html</a><br />curl rep:password=&#8221;test&#8221; &#8211;user admin:admin <a href="http://localhost:4502/home/users/a/alister@geometrixx.com" rel="nofollow">http://localhost:4502/home/users/a/alister@geometrixx.com</a></p>
+<p><span style="text-decoration:underline;">Backup Commands:</span><br />Online Backup:<br />curl -u admin:admin -X POST <a href="http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/op/startBackup/java.lang.String?target=&lt;PATH-TO-BACKUP&gt;/12-feb-2013.zip" rel="nofollow">http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/op/startBackup/java.lang.String?target=&lt;PATH-TO-BACKUP&gt;/12-feb-2013.zip</a></p>
+<p>Online backup with delay in milli seconds:<br />curl -u admin:admin -X POST <a href="http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/a/BackupDelay?value=&lt;TIME-IN-MILISECOND&#038;gt" rel="nofollow">http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/a/BackupDelay?value=&lt;TIME-IN-MILISECOND&#038;gt</a>;<br />curl -u admin:admin &#8211;data &#8220;delay=TIME-IN-MILISECONDS&amp;force=false&amp;target=01-dec-2012.zip&#8221; <a href="http://localhost:4502/libs/granite/backup/content/admin/backups/" rel="nofollow">http://localhost:4502/libs/granite/backup/content/admin/backups/</a></p>
+<p>How to stop a running online backup:<br />curl -u admin:admin <a href="http://localhost:4502/libs/granite/backup/content/admin/backups.cancel.html" rel="nofollow">http://localhost:4502/libs/granite/backup/content/admin/backups.cancel.html</a></p>
+<p>Link to track online progress:<br /><a href="http://localhost:4502/libs/granite/backup/content/admin.html" rel="nofollow">http://localhost:4502/libs/granite/backup/content/admin.html</a></p>
+<p><span style="text-decoration:underline;">Datastore GC:</span><br />For Datastore Garbage Collection:<br />curl -u admin:admin -X POST <a href="http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/op/runDataStoreGarbageCollection/java.lang.Boolean" rel="nofollow">http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/op/runDataStoreGarbageCollection/java.lang.Boolean</a></p>
+<p><span style="text-decoration:underline;">Tar Optimization:</span><br />curl -u admin:admin -X POST <a href="http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/op/startTarOptimization/" rel="nofollow">http://localhost:4502/system/console/jmx/com.adobe.granite:type=Repository/op/startTarOptimization/</a></p>
+<p><span style="text-decoration:underline;">Flush Dispatcher Cache:</span><br />curl -H &#8220;CQ-Action: Flush&#8221; -H &#8220;CQ-Handle: /content/geometrixx/en/products&#8221; -H &#8220;CQ-Path:/content/geometrixx/en/products&#8221; -H &#8220;Content-Length: 0&#8243; -H &#8220;Content-Type: application/octet-stream&#8221; <a href="http://dispatcher-server-hostname:port/dispatcher/invalidate.cache" rel="nofollow">http://dispatcher-server-hostname:port/dispatcher/invalidate.cache</a></p>
+<p> </p>
+
+<div class="wpa" style="position: relative; width:300px; text-align: center; padding: 0; margin: 10px auto; overflow: hidden; clear: both;">
+<a style="position: absolute; text-align: left; display: block; font: 9px/1 sans-serif; text-decoration: underline;" href="http://en.wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Titan";
+		var wpcom_adclk_slot = "wpcom_below_post";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "balawcm.wordpress.com");
+GA_googleAddAttr("BlogId", "28930674");
+GA_googleAddAttr("Autotag", "technology");
+GA_googleAddAttr("Tag", "adobe-cq5");
+GA_googleAddAttr("Tag", "cq-curl");
+GA_googleAddAttr("theme_bg", "f9f7f5");
+GA_googleAddAttr("theme_border", "dfdad5");
+GA_googleAddAttr("theme_text", "444444");
+GA_googleAddAttr("theme_link", "4265a7");
+GA_googleAddAttr("theme_url", "beaa99");
+GA_googleAddAdSensePageAttr("google_page_url", "http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/");
+GA_googleFillSlot("wpcom_below_post");
+}
+</script>
+</div>
+<style type="text/css">
+div.wpa>div { margin-top: 1em; }
+</style>
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//stats.wordpress.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/?share=twitter" title="Click to share on Twitter" id="sharing-twitter-126"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/?share=facebook" title="Share on Facebook" id="sharing-facebook-126"><span>Facebook</span></a></li><li class="share-end"></li></ul></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-28930674-126-51b0be0361e77' data-src='http://widgets.wp.com/likes/#blog_id=28930674&amp;post_id=126&amp;origin=http://balawcm.wordpress.com&amp;obj_id=28930674-126-51b0be0361e77' data-name='like-post-frame-28930674-126-51b0be0361e77'><h3 class='sd-title'>Like this:</h3><div class='post-likes-widget-placeholder' style='height:55px'><span class='button'><span>Like</span></span> <span class="loading">Loading...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div></div>											</div><!--end entry-->
+			<div class="meta clear">
+				<p>From &rarr; <a href="http://balawcm.wordpress.com/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a></p>
+			</div><!--end meta-->
+		</div><!--end post-->
+			<!-- You can start editing here. -->
+<div id="comments">
+			<!-- If comments are open, but there are no comments. -->
+		<div class="comment-number">
+			<span>Leave a Comment</span>
+		</div>
+	 </div><!--end comments-->
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://balawcm.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+																										
+
+
+												
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest" />
+
+<div class="comment-form-field comment-textarea">
+	<label for="comment">Enter your comment here...</label>
+	<div id="comment-form-comment"><textarea id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="http://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Gravatar" width="25" class="no-grav" />
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value="" /></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value="" /></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value="" /></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="http://s2.wp.com/wp-content/mu-plugins/highlander-comments/images/wplogo.png?m=1289230950g" alt="WordPress.com Logo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" />
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" />
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" />
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="http://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Twitter picture" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" />
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" />
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" />
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="http://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Facebook photo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" />
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" />
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" />
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+	
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+});
+</script>
+
+<div id="comment-form-subscribe">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"/> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of follow-up comments via email.</label></p></div>
+
+												<p class="form-submit">
+							<input name="submit" type="submit" id="comment-submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='126' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						
+<input type="hidden" name="genseq" value="1370537475" />
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="f4ac305591" /></p><script type='text/javascript' src='http://s2.wp.com/wp-content/mu-plugins/akismet-2.5/form.js?m=1308783962g'></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="73"/></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>			
+	<div class="navigation index">
+		<div class="alignleft"></div>
+		<div class="alignright"><a href="http://balawcm.wordpress.com/2012/11/20/how-to-set-a-unique-and-strong-password-for-a-site/" rel="prev">How to set a unique and strong password for a&nbsp;site</a> &raquo;</div>
+	</div><!--end navigation-->
+	</div><!--end content-->
+	<div id="sidebar">
+				<ul>
+					<li class="widget widget_recent_entries">
+				<h2 class="widgettitle">Recent Posts</h2>
+				<ul>
+										<li><a href="http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/">CURL it out &#8211; Adobe CQ5 Curl Commands and&nbsp;Usage</a></li>
+										<li><a href="http://balawcm.wordpress.com/2012/11/20/how-to-set-a-unique-and-strong-password-for-a-site/">How to set a unique and strong password for a&nbsp;site</a></li>
+										<li><a href="http://balawcm.wordpress.com/2012/11/14/develop-a-custom-cq-selector/">Develop a custom CQ&nbsp;selector</a></li>
+										<li><a href="http://balawcm.wordpress.com/2012/10/26/import-jstl-custom-tags-to-adobe-cq5/">Import JSTL Custom tags to Adobe&nbsp;CQ5</a></li>
+										<li><a href="http://balawcm.wordpress.com/2012/03/23/customize-buttons-on-day-cq-pages/">Customize buttons on Day CQ&nbsp;pages</a></li>
+										<li><a href="http://balawcm.wordpress.com/2012/03/22/reset-forgot-cq-password/">Reset forgot admin password in Day/Adobe&nbsp;CQ5.4</a></li>
+										<li><a href="http://balawcm.wordpress.com/2012/02/04/cq5-developer-tidbits/">CQ5 Developer&nbsp;tidbits</a></li>
+										<li><a href="http://balawcm.wordpress.com/2012/01/30/schedule-a-task-in-adobeday-cq-5/">Schedule a task in Adobe/Day CQ&nbsp;5</a></li>
+										<li><a href="http://balawcm.wordpress.com/2011/10/30/hello-world/">Hello&nbsp;world!</a></li>
+									</ul>
+			</li>
+			<li class="widget widget_categories">
+				<h2 class="widgettitle">Categories</h2>
+				<ul>
+						<li class="cat-item cat-item-76986740"><a href="http://balawcm.wordpress.com/category/dayadobe-cq/" title="View all posts filed under Day/Adobe CQ">Day/Adobe CQ</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="http://balawcm.wordpress.com/category/general/" title="View all posts filed under general">general</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://balawcm.wordpress.com/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+				</ul>
+			</li>
+			<li class="widget widget_archive">
+				<h2 class="widgettitle">Archives</h2>
+				<ul>
+						<li><a href='http://balawcm.wordpress.com/2013/02/' title='February 2013'>February 2013</a></li>
+	<li><a href='http://balawcm.wordpress.com/2012/11/' title='November 2012'>November 2012</a></li>
+	<li><a href='http://balawcm.wordpress.com/2012/10/' title='October 2012'>October 2012</a></li>
+	<li><a href='http://balawcm.wordpress.com/2012/03/' title='March 2012'>March 2012</a></li>
+	<li><a href='http://balawcm.wordpress.com/2012/02/' title='February 2012'>February 2012</a></li>
+	<li><a href='http://balawcm.wordpress.com/2012/01/' title='January 2012'>January 2012</a></li>
+	<li><a href='http://balawcm.wordpress.com/2011/10/' title='October 2011'>October 2011</a></li>
+				</ul>
+			</li>
+				</ul>
+	</div><!--end sidebar--></div><!--end wrapper-->
+</div><!--end content-background-->
+
+<div id="footer">
+	<div class="wrapper clear">
+		
+		<div id="copyright">
+			<p class="copyright-notice"><a href="http://wordpress.com/?ref=footer" rel="generator">Blog at WordPress.com</a>. | Theme: <a href="http://theme.wordpress.com/themes/titan/" title="Learn more about this theme">Titan</a> by <a href="http://thethemefoundry.com/" rel="designer">The Theme Foundry</a>.</p>
+		</div>
+	</div><!--end wrapper-->
+</div><!--end footer-->
+
+
+<script type="text/javascript">
+var _qevents = _qevents || [], wpcomQuantcastData = {"qacct":"p-18-mFEk4J448M","labels":",language.en,type.wpcom,posttag.adobe-cq5,posttag.cq-curl,as"};
+function wpcomQuantcastPixel( labels, options ) {
+	var i, defaults = wpcomQuantcastData, data = { event: 'ajax' };
+
+	labels  = labels  || '';
+	options = options || {};
+
+	if ( typeof labels != 'string' )
+		options = labels;
+
+	for ( i in defaults ) {
+		data[i] = defaults[i];
+	}
+
+	for ( i in options ) {
+		data[i] = options[i];
+	}
+
+	if ( data.labels ) {
+		data.labels += ',' + labels;
+	} else {
+		data.labels = labels;
+	}
+
+	_qevents.push( data );
+};
+(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);  })();
+_qevents.push( wpcomQuantcastData );
+</script>
+<noscript><div style="display: none;"><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=%2Clanguage.en%2Ctype.wpcom%2Cposttag.adobe-cq5%2Cposttag.cq-curl%2Cas" height="1" width="1" alt="" /></div></noscript>
+
+<script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201323ac'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1351637563g'></script>
+<script>jQuery(document).ready(function($){ Gravatar.profile_cb = function( h, d ) { WPGroHo.syncProfileData( h, d );	}; Gravatar.my_hash = WPGroHo.my_hash; Gravatar.init( 'body', '#wp-admin-bar-my-account' ); });</script>	<div style="display:none">
+	</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"http:\/\/balawcm.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"http:\/\/balawcm.wordpress.com\/wp-login.php?action=logout&_wpnonce=acdd05765b","homeURL":"http:\/\/balawcm.wordpress.com\/","postID":"126","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://s2.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1369800175j'></script>
+
+	<div id="bit" class="loggedout-follow-normal">
+		<a class="bsub" href="javascript:void(0)"><span id='bsub-text'>Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow &ldquo;/home/bkondepudi&rdquo;</label></h3>
+
+			<form action="https://subscribe.wordpress.com" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+			
+			<p><input type="email" name="email" style="width: 95%; padding: 1px 2px" value="Enter your email address" onfocus='this.value=(this.value=="Enter your email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter email address" : this.value;'  id="loggedout-follow-field"/></p>
+
+			<input type="hidden" name="action" value="subscribe"/>
+			<input type="hidden" name="blog_id" value="28930674"/>
+			<input type="hidden" name="source" value="http://balawcm.wordpress.com/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/"/>
+			<input type="hidden" name="sub-type" value="loggedout-follow"/>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="fca2f2f13b" /><input type="hidden" name="_wp_http_referer" value="/2013/02/13/curl-it-out-adobe-cq5-curl-commands-and-usage/" />
+			<p id='bsub-subscribe-button'><input type="submit" value="Sign me up" /></p>
+			</form>
+					<div id='bsub-credit'><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"http:\/\/balawcm.wordpress.com\/2013\/02\/13\/curl-it-out-adobe-cq5-curl-commands-and-usage\/":126}	</script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/mu-plugins/post-flair/sharing/sharing.js?m=1363286270g'></script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<iframe src='http://widgets.wp.com/likes/master.html?ver=20130523#ver=20130523&amp;mp6=0' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+		<div id='likes-other-gravatars'><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						var requests = [];
+						jQuery( '.jetpack-likes-widget-wrapper' ).each( function( i ) {
+							var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+							var match = regex.exec( this.id );
+							if ( ! match || match.length != 5 )
+								return;
+
+							var info = {
+								blog_id: match[2],
+								width:   this.width
+							};
+
+							if ( 'post' == match[1] ) {
+								info.post_id = match[3];
+							} else if ( 'comment' == match[1] ) {
+								info.comment_id = match[3];
+							}
+
+							info.obj_id = match[4];
+
+							requests.push( info );
+						});
+
+						JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 10 );
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+			}
+			setInterval( JetpackLikesWidgetQueueHandler, 250 );
+		//]]>
+		</script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/js/devicepx.js?m=1368969037g'></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="http://s.stats.wordpress.com/w.js?21" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'28930674','v':'wpcom','tz':'0','user_id':'0','post':'126','subd':'balawcm'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRVz1bVXJlWWRQcV0tYy4tVTFWMF1DTDNIPTBKfkNULEtGfE4/MkN8WXB2XUkzazcvfGdRVEI/Z3EuWy5iYWd8dzZfekwmNF8mcEhvemN2bl98QzFTJjhGRFMsW2JDQ3FXWVJhUjA2bjdZTThCY1JKQ1RJUn5QYz95fEYvU1JKeH4mUWxMPVt0ZmJHcmosNlhZTVs4MHVVLjBaRnJialN5fnVfSEdFVmQzRj0uaDhdUVhucTJGbV81bFNkcTRLRWk9OVZOX24zPXdoRF1ddEZHJkh2aTN4PWlMSER0Q11TdHFoVQ=='});
+addLoadEvent(function(){linktracker_init('28930674',126);});
+	</script>
+<noscript><img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//stats.wordpress.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script></body>
+</html>
