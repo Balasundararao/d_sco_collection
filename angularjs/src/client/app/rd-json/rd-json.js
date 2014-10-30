@@ -1,13 +1,13 @@
 (function() {
     'use strict';
     angular
-        .module('app.rwj')
-        .controller('rwjsonCtrl', rwjsonCtrl);
+        .module('app.rdj')
+        .controller('rdjsonCtrl', rdjsonCtrl);
 	
-    function rwjsonCtrl() {
+    function rdjsonCtrl() {
     	/* jshint validthis: true */
-    	var rw = this;
-    	rw.languages = [        
+    	var rd = this;
+    	rd.languages = [        
         	{name:"English", value:0},
         	{name:"Spanish", value:1},
         	{name:"German", value:3},
