@@ -18,8 +18,8 @@ sudo dscl . create /Users/jenkins home /Users/Shared/Jenkins/Home/
 sudo dscl . create /Users/jenkins NFSHomeDirectory /Users/Shared/Jenkins/Home/
 sudo dscl . passwd /Users/jenkins
 
-sudo launchctl unload -w /Library/LaunchDaemons/org.jenkins-ci.plist
-sudo launchctl load -w /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo launchctl load -w /Library/LaunchDaemons/org.jenkins-ci.plist( Start )
+sudo launchctl unload -w /Library/LaunchDaemons/org.jenkins-ci.plist( Stop )
 
 git ls-remote -h ssh://bthunga@wwwin-git-sjc/git/ecm/wem.git HEAD
 
