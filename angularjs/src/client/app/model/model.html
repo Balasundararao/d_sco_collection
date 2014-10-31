@@ -1,0 +1,465 @@
+tabset
+  tab(select="loadModels('Release')")
+    tab-heading
+      i.fa.fa-fw.fa-rocket
+      |  Releases
+    .row
+      h4
+      table.table.table-striped.table-condensed
+        thead
+          tr
+            th #
+            th engineer
+            th date
+            th duration
+            th task
+            th branch
+            th tag
+            th environment
+            th version
+            th name
+            th notes
+            th #
+        tbody
+          tr(ng-repeat="item in releases")
+            td i.fa.fa-fw.fa-copy(ng-click="copyModel(item)")
+            td span(editable-text="item.engineer", buttons="no", onaftersave="item.$save()") {{ item.engineer || "none" }}
+            td span(editable-text="item.date", buttons="no", onaftersave="item.$save()") {{ item.date || "none" }}
+            td span(editable-text="item.duration", buttons="no", onaftersave="item.$save()") {{ item.duration || "none" }}
+            td span(editable-text="item.task", buttons="no", onaftersave="item.$save()") {{ item.task || "none" }}
+            td span(editable-text="item.branch", buttons="no", onaftersave="item.$save()") {{ item.branch || "none" }}
+            td span(editable-text="item.tag", buttons="no", onaftersave="item.$save()") {{ item.tag || "none" }}
+            td span(editable-text="item.environment", buttons="no", onaftersave="item.$save()") {{ item.environment || "none" }}
+            td span(editable-text="item.version", buttons="no", onaftersave="item.$save()") {{ item.version || "none" }}
+            td span(editable-text="item.name", buttons="no", onaftersave="item.$save()") {{ item.name || "none" }}
+            td span(editable-text="item.notes", buttons="no", onaftersave="item.$save()") {{ item.notes || "none" }}
+            td a(href="#", ng-click="item.$wait=true" ng-hide="item.$wait")
+                i.fa.fa-trash-o  Delete
+              a(href="#", ng-click="item.$wait=undefined",  ng-show="item.$wait")
+                i.fa.fa-undo
+                |  Cancel
+              |  
+              a(href="#", ng-click="item.$confirm=true; removeModel('Release', item)", ng-show="item.$wait")
+                i.fa.fa-question
+                |  Confirm
+      form(role="form", name="releaseForm", novalidate, ng-submit="addModel('Release', newRelease); newRelease = undefined;")
+        table.table
+          thead(ng-show="newRelease")
+            tr
+              th #
+              th engineer
+              th date
+              th duration
+              th task
+              th branch
+              th tag
+              th environment
+              th version
+              th name
+              th notes
+              th #
+          tbody
+            tr(ng-show="newRelease")
+              td
+                i.fa.fa-fw.fa-plus
+              td
+                .input-group(ng-class="{'has-success': releaseForm.engineer.$valid, 'has-error': releaseForm.engineer.$dirty && releaseForm.engineer.$invalid}")
+                  input.form-control.input-sm(type="text", name="engineer", ng-required="true"
+                    ng-model="newRelease.engineer")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.date.$valid, 'has-error': releaseForm.date.$dirty && releaseForm.date.$invalid}")
+                  input.form-control.input-sm(type="text", name="date", ng-required="true"
+                    ng-model="newRelease.date")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.duration.$valid, 'has-error': releaseForm.duration.$dirty && releaseForm.duration.$invalid}")
+                  input.form-control.input-sm(type="text", name="duration", ng-required="true"
+                    ng-model="newRelease.duration")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.task.$valid, 'has-error': releaseForm.task.$dirty && releaseForm.task.$invalid}")
+                  input.form-control.input-sm(type="text", name="task", ng-required="true"
+                    ng-model="newRelease.task")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.branch.$valid, 'has-error': releaseForm.branch.$dirty && releaseForm.branch.$invalid}")
+                  input.form-control.input-sm(type="text", name="branch", ng-required="true"
+                    ng-model="newRelease.branch")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.tag.$valid, 'has-error': releaseForm.tag.$dirty && releaseForm.tag.$invalid}")
+                  input.form-control.input-sm(type="text", name="tag", ng-required="true"
+                    ng-model="newRelease.tag")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.environment.$valid, 'has-error': releaseForm.environment.$dirty && releaseForm.environment.$invalid}")
+                  input.form-control.input-sm(type="text", name="environment", ng-required="true"
+                    ng-model="newRelease.environment")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.version.$valid, 'has-error': releaseForm.version.$dirty && releaseForm.version.$invalid}")
+                  input.form-control.input-sm(type="text", name="version", ng-required="true"
+                    ng-model="newRelease.version")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.name.$valid, 'has-error': releaseForm.name.$dirty && releaseForm.name.$invalid}")
+                  input.form-control.input-sm(type="text", name="name", ng-required="true"
+                    ng-model="newRelease.name")
+              td
+                .input-group(ng-class="{'has-success': releaseForm.notes.$valid, 'has-error': releaseForm.notes.$dirty && releaseForm.notes.$invalid}")
+                  input.form-control.input-sm(type="text", name="notes", ng-required="true"
+                    ng-model="newRelease.notes")
+            tr
+              td(colspan="12")
+                a.btn.btn-sm.btn-primary(ng-click="newRelease={}", ng-class="{disabled: newRelease}")
+                  i.fa.fa-fw.fa-rocket
+                  | New Release
+                .pull-right(ng-show="newRelease")
+                  button.btn.btn-sm.btn-primary(type="submit", ng-disabled="releaseForm.$invalid"
+                    ng-class="{'btn-success': releaseForm.$valid, 'btn-danger': releaseForm.$invalid && releaseForm.$dirty}")
+                    i.fa.fa-fw.fa-send-o
+                    |  Submit
+                  |  
+                  a.btn.btn-sm.btn-warning(ng-click="newRelease=undefined")
+                    i.fa.fa-fw.fa-undo
+                    |  Cancel
+  tab(select="loadModels('User')")
+    tab-heading
+      i.fa.fa-fw.fa-user
+      |  Users
+    .row
+      table.table.table-striped.no-margin
+        thead
+          tr
+            th(style="width: 5%;") #
+            th(style="width: 25%;")
+              i.fa.fa-fw.fa-user
+              |  Name
+            th(style="width: 25%;")
+              i.fa.fa-fw.fa-terminal
+              |  Login
+            th(style="width: 30%;")
+              i.fa.fa-fw.fa-envelope-o
+              |  Email
+            th(style="width: 15%")
+              i.fa.fa-fw.fa-asterisk
+        tbody
+          tr(ng-repeat="item in users")
+            td.vert-align {{ $index + 1 }}
+            td.vert-align
+              span(editable-text="item.name", buttons="no", onaftersave="item.$save()") {{ item.name || "none" }}
+            td.vert-align
+              span(editable-text="item.login", buttons="no", onaftersave="item.$save()") {{ item.login || "none" }}
+            td.vert-align
+              span(editable-text="item.email", buttons="no", onaftersave="item.$save()") {{ item.email || "none" }}
+            td.vert-align
+              a(href="#", ng-click="item.$wait=true" ng-hide="item.$wait")
+                i.fa.fa-trash-o  Delete
+              a(href="#", ng-click="item.$wait=undefined",  ng-show="item.$wait")
+                i.fa.fa-undo
+                |  Cancel
+              |  
+              a(href="#", ng-click="item.$confirm=true; removeModel('User', item)", ng-show="item.$wait")
+                i.fa.fa-question
+                |  Confirm
+
+      form(role="form", name="userForm", novalidate, ng-submit="addModel('User', newUser); newUser = undefined;")
+        table.table
+          tbody
+            tr(ng-show="newUser")
+              td(style="width: 5%;")
+                i.fa.fa-fw.fa-plus
+              td(style="width: 25%")
+                .input-group(ng-class="{'has-success': userForm.name.$valid, 'has-error': userForm.name.$dirty && userForm.name.$invalid}")
+                  input.form-control.input-sm(type="text", name="name", ng-required="true"
+                    ng-model="newUser.name")
+                  span.input-group-addon
+                    i.fa.fa-fw.fa-user
+              td(style="width: 25%")
+                .input-group(ng-class="{'has-success': userForm.login.$valid, 'has-error': userForm.login.$dirty && userForm.login.$invalid}")
+                  input.form-control.input-sm(type="text", name="login", ng-required="true"
+                    ng-model="newUser.login")
+                  span.input-group-addon
+                    i.fa.fa-fw.fa-terminal
+              td(style="width: 30%")
+                .input-group(ng-class="{'has-success': userForm.email.$valid, 'has-error': userForm.email.$dirty && userForm.email.$invalid}")
+                  input.form-control.input-sm(type="email", name="email", ng-required="true"
+                    ng-model="newUser.email")
+                  span.input-group-addon
+                    i.fa.fa-fw.fa-envelope-o
+              td(style="width: 35%")
+            tr
+              td(colspan="5")
+                a.btn.btn-sm.btn-primary(ng-click="newUser={}", ng-class="{disabled: newUser}")
+                  i.fa.fa-fw.fa-plus
+                  | New user
+                .pull-right(ng-show="newUser")
+                  button.btn.btn-sm.btn-primary(type="submit", ng-disabled="userForm.$invalid"
+                    ng-class="{'btn-success': userForm.$valid, 'btn-danger': userForm.$invalid && userForm.$dirty}")
+                    i.fa.fa-fw.fa-send-o
+                    |  Submit
+                  |  
+                  a.btn.btn-sm.btn-warning(ng-click="newUser=undefined")
+                    i.fa.fa-fw.fa-undo
+                    |  Cancel
+  tab(select="loadModels('Team')")
+    tab-heading
+      i.fa.fa-fw.fa-users
+      |  Teams
+    .table-responsive
+      table.table.table-striped.no-margin
+        thead
+          tr
+            th #
+            th
+              i.fa.fa-fw.fa-tag
+              |  Team Name
+            th
+              i.fa.fa-fw.fa-user
+              |  Product Owner
+            th
+              i.fa.fa-fw.fa-user
+              |  Scrum Master
+            th
+              i.fa.fa-fw.fa-road
+              |  Backlog
+            th
+              i.fa.fa-fw.fa-road
+              |  Backlog Url
+            th
+              i.fa.fa-fw.fa-users
+              |  Members
+            th
+              i.fa.fa-fw.fa-road
+              |  Sprints
+            th
+              i.fa.fa-fw.fa-picture-o
+              |  Picture
+            th
+              i.fa.fa-fw.fa-asterisk
+        tbody
+          tr(ng-repeat="team in teams", ng-show="teams")
+            td.vert-align {{ $index + 1 }}
+            td.vert-align
+              span(editable-text="team.name", buttons="no"
+                onaftersave="team.$save()") {{ team.name }}
+            td.vert-align
+              span(editable-select="team.productOwner._id", onaftersave="team.$save()"
+                e-ng-options="user._id as user.name for user in users") {{ team.productOwner.name || '(none)' }}
+            td.vert-align
+              span(editable-select="team.scrumMaster._id", onaftersave="team.$save()"
+                e-ng-options="user._id as user.name for user in users") {{ team.scrumMaster.name || '(none)' }}
+            td.vert-align
+              span(editable-text="team.backlog", buttons="no"
+                onaftersave="team.$save()") {{ team.backlog || '(none)' }}
+            td.vert-align
+              span(editable-text="team.backlogUrl", buttons="no"
+                onaftersave="team.$save()") {{ team.backlogUrl || '(none)' }}
+            td.vert-align
+              div(ng-repeat="member in team.members")
+                span(ng-bind="member.name")
+                span.pull-right
+                  a(href="#", ng-click="member.$wait=true" ng-hide="member.$wait")
+                    i.fa.fa-trash-o 
+                  a(href="#", ng-click="member.$wait=undefined",  ng-show="member.$wait")
+                    i.fa.fa-undo
+                  |  
+                  a(href="#", ng-click="member.$confirm=true; removeMember(team, member)", ng-show="member.$wait")
+                    i.fa.fa-question
+              div.btn-group(style="width: 100%")
+                button.btn.btn-default.dropdown-toggle.btn-xs(type="button", style="width: 100%;"
+                  data-toggle="dropdown") Add Member 
+                  span.caret  
+                ul.dropdown-menu(role="menu")
+                  li(ng-repeat="user in users | memberFilter:team.members")
+                    a(href="#", ng-click="team.members.push(user); team.$save()")  {{user.name}}
+            td.vert-align
+              div(ng-repeat="sprint in team.sprints")
+                span(ng-bind="sprint.name")
+                span.pull-right
+                  a(href="#", ng-click="sprint.$wait=true" ng-hide="sprint.$wait")
+                    i.fa.fa-trash-o 
+                  a(href="#", ng-click="sprint.$wait=undefined",  ng-show="sprint.$wait")
+                    i.fa.fa-undo
+                  |  
+                  a(href="#", ng-click="sprint.$confirm=true; removeSprint(team, sprint)", ng-show="sprint.$wait")
+                    i.fa.fa-question
+              div.btn-group(style="width: 100%")
+                button.btn.btn-default.dropdown-toggle.btn-xs(type="button", style="width: 100%;"
+                  data-toggle="dropdown") Add Sprint 
+                  span.caret  
+                ul.dropdown-menu(role="menu")
+                  li(ng-repeat="sprint in sprints")
+                    a(href="#", ng-click="team.sprints.push(sprint); team.$save()")  {{sprint.name}}
+            td.vert-align
+              span(editable-text="team.imageUrl", buttons="no"
+                onaftersave="team.$save()") {{ team.imageUrl || '(none)' }}
+            td
+              a(href="#", ng-click="team.$wait=true" ng-hide="team.$wait")
+                i.fa.fa-trash-o
+              a(href="#", ng-click="team.$wait=undefined",  ng-show="team.$wait")
+                i.fa.fa-undo
+              |  
+              a(href="#", ng-click="team.$confirm=true; removeModel('Team', team)", ng-show="team.$wait")
+                i.fa.fa-question
+
+      form(role="form", name="teamForm", novalidate, ng-submit="addModel('Team', newTeam); newTeam = undefined;")
+        table.table.table-striped
+          tbody
+            tr(ng-show="newTeam")
+              td
+                i.fa.fa-fw.fa-plus
+              td
+                .input-group(style="width: 100%;"
+                  ng-class="{'has-success': teamForm.name.$valid, 'has-error': teamForm.name.$dirty && teamForm.name.$invalid}")
+                  input.form-control.input-sm(type="text", name="name"
+                    ng-model="newTeam.name", ng-required="true")
+              td
+                .input-group(style="width: 100%;")
+                  select.form-control.input-sm(ng-options="user._id as user.name for user in users"
+                    ng-model="newTeam.productOwner", name="productOwner", style="width: 100%;")
+              td
+                .input-group(style="width: 100%;")
+                  select.form-control.input-sm(ng-options="user._id as user.name for user in users"
+                    ng-model="newTeam.scrumMaster", name="scrumMaster", style="width: 100%;")
+              td
+                .input-group(style="width: 100%;"
+                  ng-class="{'has-success': teamForm.backlog.$valid, 'has-error': teamForm.backlog.$dirty && teamForm.backlog.$invalid}")
+                  input.form-control.input-sm(type="text", name="backlog"
+                    ng-model="newTeam.backlog", ng-required="true")
+              td
+                .input-group(style="width: 100%;"
+                  ng-class="{'has-success': teamForm.backlogUrl.$valid, 'has-error': teamForm.backlogUrl.$dirty && teamForm.backlogUrl.$invalid}")
+                  input.form-control.input-sm(type="text", name="backlogUrl"
+                    ng-model="newTeam.backlogUrl", ng-required="true")
+              td
+                  select.form-control.input-sm(ng-options="user._id as user.name for user in users"
+                    ng-model="newTeam.members", name="members", multiple, style="width: 100%;")
+              td
+                  select.form-control.input-sm(ng-options="sprint._id as sprint.name for sprint in sprints"
+                    ng-model="newTeam.sprints", name="sprints", multiple, style="width: 100%;")
+              td
+                .input-group
+                  input.form-control.input-sm(type="text", name="imageURl", ng-model="newTeam.imageUrl")
+              td
+                i.fa.fa-fw.fa-asterisk
+            tr
+              td(colspan="7")
+                a.btn.btn-sm.btn-primary(ng-click="newTeam={}", ng-class="{disabled: newTeam}")
+                  i.fa.fa-fw.fa-plus
+                  | New team
+                .pull-right(ng-show="newTeam")
+                  button.btn.btn-sm.btn-primary(type="submit", ng-disabled="teamForm.$invalid"
+                    ng-class="{'btn-success': teamForm.$valid, 'btn-danger': teamForm.$invalid && teamForm.$dirty}")
+                    i.fa.fa-fw.fa-send-o
+                    |  Submit
+                  |  
+                  a.btn.btn-sm.btn-warning(ng-click="newTeam=undefined")
+                    i.fa.fa-fw.fa-undo
+                    |  Cancel
+  tab(select="loadModels('Sprint')")
+    tab-heading
+      i.fa.fa-fw.fa-road
+      |  Sprints
+    .table-responsive
+    table.table.table-striped.no-margin
+      thead
+        tr
+          th(style="width: 5%") #
+          th(style="width: 10%")
+            i.fa.fa-fw.fa-tag
+            |  Name
+          th(style="width: 10%")
+            i.fa.fa-fw.fa-trophy
+            |  Goal
+          th(style="width: 10%")
+            i.fa.fa-fw.fa-code
+            |  MQL
+          th(style="width: 10%")
+            i.fa.fa-fw.fa-bar-chart-o
+            |  Wall
+          th(style="width: 15%")
+            i.fa.fa-fw.fa-flag-o
+            |  Start
+          th(style="width: 15%")
+            i.fa.fa-fw.fa-flag-checkered
+            |  End
+          th(style="width: 10%")
+            i.fa.fa-fw.fa-asterisk
+      tbody
+        tr(ng-repeat="sprint in sprints")
+          td.vert-align {{ $index + 1 }}
+          td.vert-align
+            span(editable-text="sprint.name", buttons="no", onaftersave="sprint.$save()") {{ sprint.name || "none" }}
+          td.vert-align
+            span(editable-text="sprint.goal", buttons="no", onaftersave="sprint.$save()") {{ sprint.goal || "none" }}
+          td.vert-align
+            span(editable-text="sprint.mql", buttons="no", onaftersave="sprint.$save()") {{ sprint.mql || "none" }}
+          td.vert-align
+            span(editable-text="sprint.wallUrl", buttons="no", onaftersave="sprint.$save()") {{ sprint.wallUrl || "none" }}
+          td.vert-align
+            span(editable-text="sprint.startDate", buttons="no", onaftersave="sprint.$save()") {{ sprint.startDate | date : 'd MMM yyyy' || "none" }}
+          td.vert-align
+            span(editable-text="sprint.endDate", buttons="no", onaftersave="sprint.$save()") {{ sprint.endDate | date : 'd MMM yyyy' || "none" }}
+          td.vert-align
+            a(href="#", ng-click="sprint.$wait=true" ng-hide="sprint.$wait")
+              i.fa.fa-trash-o  Delete
+            a(href="#", ng-click="sprint.$wait=undefined",  ng-show="sprint.$wait")
+              i.fa.fa-undo
+              |  Cancel
+            |  
+            a(href="#", ng-click="sprint.$confirm=true; removeModel('Sprint', sprint)", ng-show="sprint.$wait")
+              i.fa.fa-question
+              |  Confirm
+
+    form(role="form", name="localForm", novalidate, ng-submit="addModel('Sprint', newSprint); newSprint = undefined;")
+      table.table
+        tbody
+          tr(ng-show="newSprint")
+            td(style="width: 5%;")
+              i.fa.fa-fw.fa-plus
+            td(style="width: 10%")
+              .input-group(ng-class="{'has-success': localForm.name.$valid, 'has-error': localForm.name.$dirty && localForm.name.$invalid}")
+                input.form-control.input-sm(type="text", name="name", ng-required="true"
+                  ng-model="newSprint.name")
+                span.input-group-addon
+                  i.fa.fa-fw.fa-tag
+            td(style="width: 10%")
+              .input-group(ng-class="{'has-success': localForm.goal.$valid, 'has-error': localForm.goal.$dirty && localForm.goal.$invalid}")
+                input.form-control.input-sm(type="text", name="goal", ng-required="true"
+                  ng-model="newSprint.goal")
+                span.input-group-addon
+                  i.fa.fa-fw.fa-trophy
+            td(style="width: 10%")
+              .input-group(ng-class="{'has-success': localForm.mql.$valid, 'has-error': localForm.mql.$dirty && localForm.mql.$invalid}")
+                input.form-control.input-sm(type="text", name="mql", ng-required="true"
+                  ng-model="newSprint.mql")
+                span.input-group-addon
+                  i.fa.fa-fw.fa-code
+            td(style="width: 10%")
+              .input-group(ng-class="{'has-success': localForm.wallUrl.$valid, 'has-error': localForm.wallUrl.$dirty && localForm.wallUrl.$invalid}")
+                input.form-control.input-sm(type="text", name="wallUrl", ng-required="true"
+                  ng-model="newSprint.wallUrl")
+                span.input-group-addon
+                  i.fa.fa-fw.fa-code
+            td(style="width: 15%")
+              .input-group(ng-class="{'has-success': localForm.startDate.$valid, 'has-error': localForm.startDate.$dirty && localForm.startDate.$invalid}")
+                input.form-control.input-sm(type="text", name="startDate", ng-required="true"
+                  ng-model="newSprint.startDate")
+                span.input-group-addon
+                  i.fa.fa-fw.fa-flag-o
+            td(style="width: 15%")
+              .input-group(ng-class="{'has-success': localForm.endDate.$valid, 'has-error': localForm.endDate.$dirty && localForm.endDate.$invalid}")
+                input.form-control.input-sm(type="text", name="endDate", ng-required="true"
+                  ng-model="newSprint.endDate")
+                span.input-group-addon
+                  i.fa.fa-fw.fa-flag-checkered
+            td(style="width: 10%")
+              | hi
+          tr
+            td(colspan="9")
+              a.btn.btn-sm.btn-primary(ng-click="newSprint={}", ng-class="{disabled: newSprint}")
+                i.fa.fa-fw.fa-plus
+                | New Sprint
+              .pull-right(ng-show="newSprint")
+                button.btn.btn-sm.btn-primary(type="submit", ng-disabled="localForm.$invalid"
+                  ng-class="{'btn-success': localForm.$valid, 'btn-danger': localForm.$invalid && localForm.$dirty}")
+                  i.fa.fa-fw.fa-send-o
+                  |  Submit
+                |  
+                a.btn.btn-sm.btn-warning(ng-click="newSprint=undefined")
+                  i.fa.fa-fw.fa-undo
+                  |  Cancel
