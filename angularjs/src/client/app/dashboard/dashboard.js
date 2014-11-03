@@ -12,7 +12,6 @@
     	db.setTheme = setTheme;
     	
     	function setTheme(theme) {
-    		console.log( theme );
         	db.theme = theme;
 	    };
     }   // end function 

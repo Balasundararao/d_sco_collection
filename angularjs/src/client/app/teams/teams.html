@@ -72,13 +72,15 @@
                             <div class="form-group">
                                 <label for="Type" class="col-xs-4 control-label">Card Type</label>
                                 <div class="col-xs-8">
-                                    <select name="Type" ng-model="queryFilter.Type" ng-options="item.Type as item.Type for item in selectedSprint.cards | unique : 'Type'" class="form-control"></select>
+                                    <!--<select name="Type" ng-model="queryFilter.Type" ng-options="item.Type as item.Type for item in selectedSprint.cards | unique : 'Type'" class="form-control"></select>  TO DO  later.. --> 
+                                    <select name="Type" ng-model="queryFilter.Type" ng-options="item.Type as item.Type for item in selectedSprint.cards " class="form-control"></select> 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="Status" class="col-xs-4 control-label">Status</label>
                                 <div class="col-xs-8">
-                                    <select name="Type" ng-model="queryFilter['Simple Status']" ng-options="item['Simple Status'] as item['Simple Status'] for item in selectedSprint.cards | unique : 'Simple Status'" class="form-control"></select>
+                                    <!--<select name="Type" ng-model="queryFilter['Simple Status']" ng-options="item['Simple Status'] as item['Simple Status'] for item in selectedSprint.cards | unique : 'Simple Status'" class="form-control"></select> -->
+                                    <select name="Type" ng-model="queryFilter['Simple Status']" ng-options="item['Simple Status'] as item['Simple Status'] for item in selectedSprint.cards " class="form-control"> </select>
                                 </div>
                             </div>
                         </div>
@@ -122,4 +124,4 @@
         <li ng-repeat="item in teams" class="list-group-item"><pre>{{item}}</pre>
         </li>
     </ul>
-</div> - See more at: http://fiddlesalad.com/jade/#sthash.5cnBkogF.dpuf
+</div> 
