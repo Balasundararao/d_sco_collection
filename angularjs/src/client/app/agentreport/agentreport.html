@@ -5,7 +5,7 @@
             <div class="panel-body">
                 <div ng-show="agents.length==0">No agents</div>
                 <div ng-show="loading">Hi, I'm loading</div>
-                <table class="table agenttable  table-hover" ng-show="agents" width="100%">
+                <table class="table agenttable  table-hover" ng-show="ar.agents" width="100%">
                     <thead>
                     <!--<th>#</th> -->
                     <th width="10%">Details</th>
@@ -18,10 +18,10 @@
 
                     </thead>
                     <tbody>
-                    <tr  ng-repeat="currentAgent in agents" ng-class="{warning: currentAgent==agent}">
+                    <tr  ng-repeat="currentAgent in ar.agents" ng-class="{warning: ar.currentAgent==ar.agent}">
                         <td colspan="7">
                             <table class="table agentrow table-hover">
-                                <tr ng-class="{warning: currentAgent==agent}" >
+                                <tr ng-class="{warning: ar.currentAgent==ar.agent}" >
                                     <!-- <td>{{$index+1}}</td> -->
                                     <td width="10%">
                                         <i ng-show="!agentRowView[$index]" ng-click="changeAgentRowValue($index)" class="glyphicon btn-link glyphicon-circle-arrow-down" title="Agent Name : {{currentAgent.name}} &#013;Agent Profile : {{currentAgent.profile}} &#013;Assignment : {{currentAgent.assignment}} &#013;"></i>
@@ -80,7 +80,7 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">{{ agent._id ? "Update" : "Add" }}</h3>
+                <h3 class="panel-title">{{ ar.agent._id ? "Update" : "Add" }}</h3>
             </div>
             <div class="panel-body">
 
@@ -134,13 +134,13 @@
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-primary" ng-click="createOrUpdate(agent)" ng-disabled="agentForm.$invalid">
-                            {{ agent._id ? "Update" : "Add" }}
+                            {{ ar.agent._id ? "Update" : "Add" }}
                         </button>
                         <button type="button" class="btn btn-link" ng-click="setAgent()">Cancel</button>
                     </div>
                     <!--  <div class="alert alert-danger" ng-show="agentForm.agentProfile.$error.required">Agent profile is empty</div>-->
                     <div class="alert alert-danger" ng-show="agentForm.hostname.$error.minlength || agentForm.hostname.$error.required">Agent name must be in the format <i>name.cisco.com</i></div>
-                    <tt>agent = {{agent}}</tt>
+                    <tt>agent = {{ar.agent}}</tt>
                     <!--<tt>agentForm.hostname.$error = {{agentForm.hostname.$error}}</tt>
                     <tt>agentForm.agentProfile.$error = {{agentForm.agentProfile.$error}}</tt>
 

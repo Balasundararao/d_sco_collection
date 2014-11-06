@@ -18,6 +18,7 @@
     	
         //  #####  Function callls #####
     	function init() {
+    		console.log( "AM I visible or not??" );
         	ar.loading = true;
         	ar.agents = undefined;	
         	agentService.list().then(function (response) {
