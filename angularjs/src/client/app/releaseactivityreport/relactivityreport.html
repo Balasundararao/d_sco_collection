@@ -1,0 +1,137 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">Release Activity Report</h3></div>
+            <div class="panel-body">
+                <div ng-show="agents.length==0">No agents</div>
+                <div ng-show="loading">Hi, I'm loading</div>
+                    <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <th></th>
+                        <th>Project Name</th>
+                        <th>Branch</th>
+                        <th>Tag</th>
+                        <th>Environment</th>
+                        <th>SnapShot/Release</th>
+                        <th>Version/Artifact</th>
+                        <th>Future Date</th>
+                        <th>Actual Start Date</th>
+                        <th>Actual End Date</th>
+                        <th>Requested By</th>
+                        <th>op</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="r in releases | filter:searchText | orderBy:'fld_id_int'">
+                            <td>{{r.fld_id_int | prjTypeCheck:r.fld_rtype_txt:r.fld_parent_id_int }}</td>
+                            <td>{{r.fld_projectname_txt}}</td>
+                            <td>{{r.fld_branch_txt}}</td>
+                            <td>{{r.fld_tag_txt}}</td>
+                            <td>{{r.fld_environment_txt}}</td>
+                            <td>{{r.fld_snapshot_txt}}</td>
+                            <td>{{r.fld_version_txt}}</td>
+                            <td>{{r.fld_future_date_dt}}</td>
+                            <td>{{r.fld_actual_start_dt}}</td>
+                            <td>{{r.fld_actual_end_dt}}</td>
+                            <td>{{r.fld_requestedby_txt}}</td>
+                            <td><a href="/editactivity/{{r.fld_id_int}}">E</a>/<a href="/deleteactivity/{{r.fld_id_int}}">D</a></td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>    
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ ar.agent._id ? "Update" : "Add" }}</h3>
+            </div>
+            <div class="panel-body">
+            <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <td>
+                        <form role="form" method="post" action="{{action}}" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="activitytype" class="col-sm-2 control-label">Project Type</label>
+                                <div class="col-sm-10">
+                                    <select ng-model="sel_activity" ng-disabled="sel_activity.name=='Future Release' &amp;&amp; dis==true" ng-selected="release.fld_rtype_txt" name="sel_activitytype" ng-options="type.name for type in rtype" class="form-control"></select>
+                                    <select ng-model="sel_parent" name="parentId" ng-show="sel_activity.name=='Actual Release'" class="form-control">
+                                        <option value="">-- choose parent --</option>
+                                        <option ng-repeat="v in plannedreleases" ng-selected="{{sel_parent==v.fld_id_int}}" value="{{v.fld_id_int}}">{{v.fld_projectname_txt}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectname" class="col-sm-2 control-label">Project Name</label>
+                                <div class="col-sm-10">
+                                    <input id="projectname" type="text" name="txt_projectname" placeholder="Enter projectname" value="{{release.fld_projectname_txt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="requestedby" class="col-sm-2 control-label">Requested By</label>
+                                <div class="col-sm-10">
+                                    <input id="requestedby" type="text" name="txt_requestedby" placeholder="Requestedby" value="{{release.fld_requestedby_txt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="branch" class="col-sm-2 control-label">Branch</label>
+                                <div class="col-sm-10">
+                                    <input id="branch" type="text" name="txt_branch" placeholder="branch" value="{{release.fld_branch_txt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tag" class="col-sm-2 control-label">Tag</label>
+                                <div class="col-sm-10">
+                                    <input id="tag" type="text" name="txt_tag" placeholder="tag" value="{{release.fld_tag_txt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="environment" class="col-sm-2 control-label">Environment</label>
+                                <div class="col-sm-10">
+                                    <input id="environment" type="text" name="txt_environment" placeholder="environment" value="{{release.fld_environment_txt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="snap_shot" class="col-sm-2 control-label">Snapshot</label>
+                                <div class="col-sm-10">
+                                    <input id="snap_shot" type="text" name="txt_snapshot" placeholder="snapshot" value="{{release.fld_snapshot_txt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="version" class="col-sm-2 control-label">Version</label>
+                                <div class="col-sm-10">
+                                    <input id="version" type="text" name="txt_version" placeholder="version" value="{{release.fld_version_txt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="futuredate" class="col-sm-2 control-label">Future Date</label>
+                                <div class="col-sm-10">
+                                    <input id="futuredate" type="date" name="futuredate" value="{{release.fld_future_date_dt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div ng-show="sel_activity.name=='Actual Release'" class="form-group">
+                                <label for="asdate" class="col-sm-2 control-label">Actual Start Date</label>
+                                <div class="col-sm-10">
+                                    <input id="asdate" type="date" name="asdate" value="{{release.fld_actual_start_dt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div ng-show="sel_activity.name=='Actual Release'" class="form-group">
+                                <label for="aedate" class="col-sm-2 control-label">Actual End Date</label>
+                                <div class="col-sm-10">
+                                    <input id="aedate" type="date" name="aedate" value="{{release.fld_actual_end_dt}}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <input type="hidden" name="_method" value="{{method}}"/>
+                                    <button type="submit" class="btn btn-default">
+                                        {{title}}
+                                    </button>
+                                </div>
+                            </div>
+                        </form></td>
+                    </tr>
+                </table>
+        </div>
+        </div>
+    </div><!--  END  COL-md-4...-->    
+</div>
