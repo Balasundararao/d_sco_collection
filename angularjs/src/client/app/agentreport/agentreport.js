@@ -15,16 +15,16 @@
     	ar.createOrUpdate      = createOrUpdate;
     	ar.remove              = remove;
     	ar.setAgent            = setAgent;
+    	ar.errFn               = errFn;
     	
         //  #####  Function callls #####
     	function init() {
-    		console.log( "AM I visible or not??" );
         	ar.loading = true;
         	ar.agents = undefined;	
         	agentService.list().then(function (response) {
             	ar.agents = response.data;
             	ar.loading = false;
-        		}, errFn);
+        		}, ar.errFn);
     	}; // ar.init ends here
     	function changeAgentRowValue(index) {
         	ar.agentRowView[index] = !ar.agentRowView[index];
@@ -36,13 +36,13 @@
                 	then(function () {
                     	ar.init();
                     	ar.agent = undefined;
-                	}, errFn);
+                	}, ar.errFn);
         	} else {
             agentService.create(agent).
                 then(function () {
                     ar.init();
                     ar.agent = undefined;
-                }, errFn);
+                }, ar.errFn);
         	}
     	}; //ar.createOrUpdate 
     	
@@ -51,12 +51,16 @@
         	agentService.remove(agent).
             	then(function () {
                 	ar.init();
-            	}, errFn);
+            	}, ar.errFn);
     	}; //ar.remove
     	
     	function setAgent(currentAgent) {
         	ar.agent = currentAgent;
     	};
+    	
+    	function errFn(){
+	    	var errFn = function (reason) { ar.error = reason; console.dir(reason); };
+    	}
     	
     	// Initializing the function ..
     	ar.init();

@@ -7,10 +7,11 @@
         'app.grapevine',
         'app.hookomator',
         'app.release',
-        'app.smoketest',
+ 	    'app.smoketest',
+ 	    'app.releaseactivityreport',
+        'app.ar',
         'app.cl',
         'app.rdj',
-        'app.ar',
         'app.mql',
         'app.sg',
         'app.ts',
@@ -32,6 +33,7 @@
         $routeProvider.when('/hookomator',          {templateUrl: 'app/hookomator/hookomator.html',   controller: 'hookomatorCtrl', controllerAs:'hm'})
         $routeProvider.when('/release',             {templateUrl: 'app/release/release.html',   controller: 'releaseCtrl', controllerAs:'rc'})
         $routeProvider.when('/smoketest/:sandbox',  {templateUrl: 'app/smoke_test/smoketest.html',          controller: 'smokeTestCtrl'})
+        $routeProvider.when('/releaseactivityreport',{templateUrl: 'app/releaseactivityreport/relactivityreport.html',  controller: 'relactivityReportCtrl', controllerAs:'rars'})
         $routeProvider.when('/agentreport',         {templateUrl: 'app/agentreport/agentreport.html',       controller: 'agentreportCtrl', controllerAs:'ar'})
         $routeProvider.when('/teams',        {templateUrl: 'app/teams/teams.html',   controller: 'teamsCtrl', controllerAs:'ts'})
         $routeProvider.when('/mql',          {templateUrl: 'app/mql/mql.html',       controller: 'mqlCtrl', controllerAs:'mq'})
