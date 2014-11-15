@@ -1,12 +1,13 @@
 module.exports = function(app) {
    	var express = require('express');
-    var agentcontroller = require('./agentreport.controller')();
+   	var mymodel    = require('./agentreport.schema')();
+    var controller = require('../utils/data_mongo.controller')(mymodel);
     var router = express.Router();
 
-    router.get('/',          agentcontroller.list);    // Agent Report List api -- api/agents
-	router.post('/create',   agentcontroller.create);  // Agent Report Create   -- api/agents/create
-	router.put('/edit/:id',  agentcontroller.edit);    // Agent Report edit     -- api/agents/edit/id
-	router.delete('/remove/:id', agentcontroller.remove);  // Agent Report Remove   -- api/agents/remove
+    router.get('/',          controller.list);    // Agent Report List api -- api/agents
+	router.post('/create',   controller.create);  // Agent Report Create   -- api/agents/create
+	router.put('/edit/:id',  controller.edit);    // Agent Report edit     -- api/agents/edit/id
+	router.delete('/remove/:id', controller.remove);  // Agent Report Remove   -- api/agents/remove
 
 	return router;
 };
