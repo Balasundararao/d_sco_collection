@@ -61,3 +61,6 @@ curl -v --header "CQ-Action: Activate" --header "CQ-Handle:wemhandle,remove,all,
 curl -H "CQ-Action: DELETE" -H "CQ-Handle:/etc/designs" -H "CQ-Path:/etc/designs" -H "Content-Length: 0" -H "Content-Type: application/octet-stream" http://wemxweb-publish-stage3-01:8080/dispatcher/invalidate.cache
 
 clean install -P deploySetup --fae -Dcrx.host=cqbot.cisco.com -Dcrx.port=1138
+
+
+
