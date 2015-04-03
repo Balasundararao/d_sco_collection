@@ -10,17 +10,17 @@
         myapp.controller("myAppCtrl", function($scope){
             $scope.loadMoreTweets = function(){
                 alert("Loading tweets");
-            }
-        })
+            };
+        });
         
         
         myapp.directive("enter",function(){
             return function(scope, element, attrs){
                 element.bind("mouseenter",function(){
                    scope.loadMoreTweets();
-                })
-            }
-        })
+                });
+            };
+        });
     </script>
 </head>
 <body>
